@@ -1,3 +1,4 @@
+"use client"
 import style from "../style/home.module.css";
 import Image from "next/image";
 import React, { useState, useRef } from "react";
