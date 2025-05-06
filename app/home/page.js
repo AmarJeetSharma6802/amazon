@@ -296,7 +296,7 @@ export default function Home() {
             onClick={() => scrollCarousel("left")}
             disabled={!canScrollLeft}
           >
-            {/* <img src={leftArrow} alt="" id="left-img" /> */}
+            <Image src="/left-arrow.png" alt="" id="left-img" width={25} height={25}  />
           </button>
           <div className="carousel-2" ref={carouselRef} onScroll={handleScroll}>
             {itemMember.map((item,index) => (
@@ -326,7 +326,7 @@ export default function Home() {
             onClick={() => scrollCarousel("right")}
             disabled={!canScrollRight}
           >
-            {/* <img src={rightArrow} alt="" id="right-img" /> */}
+             <Image src="/right-arrow.png" alt="" id="left-img" width={25} height={25}  />
           </button>
         </div>
       </div>
