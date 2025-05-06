@@ -31,7 +31,7 @@ export default function RootLayout({
     <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
     <html lang="en">
       <head>
-      <link rel="shortcut icon" href="/indianflag.png"  />
+      <link rel="icon" href="/Amazon_icon.png" type="image/png" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
       </head>
 

@@ -2,7 +2,26 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['images-eu.ssl-images-amazon.com', 'm.media-amazon.com', 'cdn.grofers.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images-eu.ssl-images-amazon.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.grofers.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
