@@ -3,9 +3,7 @@ import style from '../style/footer.module.css'
 import SecondFooter from "../footer/SecondFooter"
 import {
   SignedOut,
-  SignedIn,
   SignInButton,
-  UserButton
 } from '@clerk/nextjs';
 
 function Footer() {
