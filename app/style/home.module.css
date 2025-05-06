@@ -1,0 +1,114 @@
+
+
+.swiper {
+    width: 100%;
+    min-height: 100vh;
+    position: relative; 
+  }
+  
+  .swiper_img {
+    min-height: calc(100vh - 60px);
+    width: 100%;
+  }
+  
+  .bg_img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, rgb(222, 221, 221) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Grid wrapper */
+  .grid_flex_box_widht {
+    position: relative;
+    z-index: 2;         
+    margin-top: -390px; 
+  }
+  
+  .grid_flex_box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 94vw;
+    margin: auto ;
+    place-content:center ;
+  }
+  
+  .grid_flex_item {
+    height:auto;
+    background-color: rgb(255, 255, 255);
+    /* width: 100%; */
+
+  }
+  .grid_flex_item_main_title{
+    padding: 8px;
+  }
+
+  .grid_flex_item_title{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  .grid_flex_item_title_text{
+    cursor: pointer;
+  }
+  
+  .grid_box_width_img{
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+  }
+  .grid_flex_p_main_title{
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .grid_flex_item_inner_title{
+    font-size: 0.8rem;
+  }
+  .grid_flex_item_main_title_btn{
+    padding: 8px;
+    background-color: transparent;
+    border: none;
+    color: #2162a1;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    
+    
+    .grid_flex_box {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .grid_flex_box::-webkit-scrollbar {
+      height: 8px;
+    }
+  
+    .grid_flex_box::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+  
+    .grid_flex_box::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+  
+    .grid_flex_box::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  
+    .grid_flex_box > * {
+      flex: 0 0 auto; /* Important for horizontal scroll */
+    }
+  }  

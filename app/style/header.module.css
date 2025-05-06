@@ -1,0 +1,355 @@
+.topHead{
+    height: 60px;
+    background-color: #131921;
+    display: flex;
+    align-items: center;
+    gap:25px;
+    padding: 0px 1rem;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.logo:hover{
+    border: 1px solid white;
+}
+#img_logo{
+    width: 130px;
+}
+.in{
+    color: white;
+    position: absolute;
+    top: 15px;
+    font-size: 14px;
+    right:-7px;
+    font-family: poppins;
+    font-weight: 500;
+}
+#location_img{
+width: 25px;
+}
+.header_address{
+    display: flex;
+    align-items: center;
+}
+.Delivering{
+    color: rgb(214, 214, 214);
+    font-size: 12px;
+    font-family: poppins;
+}
+
+.updateAddress{
+    font-weight: 600;
+    color: white;
+    font-family: poppins;
+    font-size: 14px;
+
+}
+
+.input_slector{
+    display: flex;
+    width: 48%;
+}
+.caret_all{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #e6e6e6;
+    padding: 8.1px;
+    cursor: pointer;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+}
+.All{
+    font-size: 13px;
+    font-family: poppins;
+}
+
+#caret_down{
+    color: #5a5959;
+    font-size: 13px;
+}
+
+.slector{
+    position: absolute;
+    top:60px;
+    height: 40vh;
+    background-color: #e6e6e6;
+    overflow-y: auto;
+    border-radius: 4px;
+    width: 14vw;
+    z-index: 9;
+}
+.slector_ul li{
+    padding: 7px;
+    font-family: poppins;
+    font-size: 14px;
+    border-bottom: 1px solid rgb(221, 220, 220);
+    cursor: pointer;
+}
+.slector_ul li:hover{
+background-color: rgb(80, 144, 240);
+color: white;
+border-radius: 2px;
+}
+.search{
+    width: 100%;
+}
+#search_input{
+    width: 100%;
+    padding: 8.5px;
+}
+.searchLogo{
+    background-color: rgb(238, 191, 89);
+    padding: 7.5px 12px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.indianFlag{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+#magnifying{
+    font-size: 20px;
+}
+#indiaFlag_img{
+    width: 28px;
+
+}
+.En{
+color: white;
+font-family: poppins;
+font-weight: 500;
+
+}
+.btn_login{
+    cursor: pointer;
+}
+.singIn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: poppins;
+    cursor: pointer;
+
+}
+.AccountList{
+    color: white;
+    font-family: poppins;
+    font-weight: 500;
+    font-size: 14px;
+}
+.retruns{
+    color: white;
+    font-family: poppins;
+    font-size: 14px;
+}
+.orders{
+    color: white;
+    font-family: poppins;
+    font-size: 14px;
+    font-weight: 500;
+}
+.cartLogo{
+    display: flex;
+    gap: 5px;
+    width: 5%;
+    justify-content: center;
+    cursor: pointer;
+}
+.cart{
+    color: white;
+    font-size:1.5rem;
+}
+.count{
+    color: white;
+    font-size:1.2rem; 
+    font-family: poppins;
+    font-weight: 500;
+}
+.secondheader_Details{
+    background-color :rgb(35, 47, 62);
+    color: white;
+    padding: 10px 2rem;
+    font-family: poppins;
+    display: flex;
+    /* gap: 17px; */
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.secondAll_bras{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    
+}
+.header_item{
+    font-size: 14px;
+}
+
+.header_item.active{
+color: rgb(238, 191, 89);
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    
+}
+
+.navbar_item {
+    position:absolute ;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+   
+}
+
+
+
+.navbar_item_login{
+    background-color :rgb(35, 47, 62);
+    color: white;
+}
+.navbar_item_btn_login{
+    display: flex;
+    padding: 12px 1.8rem;
+    align-items: center;
+    gap: 10px;
+
+}
+.navbar_item_singIn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+}
+.hello{
+    font-size: 1.1rem;
+    font-family: poppins;
+    font-weight: 500;
+}
+.close{
+    position: absolute;
+    left: 24rem;
+    top:0.8rem;
+    color:white ;
+    font-size: 2rem;
+    z-index: 99999;
+    cursor: pointer;
+    border: 1px solid white;
+    padding: 2px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+.trending_header_ul{
+    padding: 1.5rem;
+}
+.trending_header_liBold{
+    font-size: 1.2rem;
+    font-family: poppins;
+    font-weight: 600;
+}
+.trending_header_li{
+    padding: 6px;
+    font-family: poppins;
+    color: black;
+}
+.trending_header{
+    border-bottom: 1px solid grey;
+}
+
+.digital_content_nav{
+    border-bottom: 1px solid grey;
+}
+.digital_content_nav_ul{
+    padding: 1.1rem;
+}
+.digital_content_nav h3{
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    font-family: poppins;
+}
+.digital_content_nav_li{
+    font-family: poppins;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    
+}
+.digital_content_nav_li_arrow_flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow_li_page{
+    position: absolute;
+    top: 3.5rem;
+    width: 350px;
+    background-color: white;
+    left: 0;
+    /* min-height: calc(100vh - 3.5rem); */
+    height: 100%;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+}
+.arrow_li_page.active{
+    transform: translateX(0);
+}
+.backArrow{
+    border-bottom: 1px solid grey;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: poppins;
+}
+.backArrow{
+    display: flex;
+    gap: 10px;
+    padding: 1rem;
+    align-items: center;
+}
+.left_arrow{
+    font-size: 1.3rem;
+    color: black;
+    cursor: pointer;
+}
+.pppp{
+    font-size: 1.3rem;
+    color: black;
+    cursor: pointer;
+    
+}
+.navbar_item_btn{
+    padding: 10px;
+        
+}
+.main_memu_title{
+    padding: 10px;
+    font-size: 1.2rem;
+    font-family: poppins;
+    font-weight: 500;
+}
+.main_menu_ul, .main_menu_li {
+    padding: 10px;
+    background-color: white;
+}
+.main_menu_ul_top_boder{
+    border-top: 1px solid rgb(120, 119, 119);
+}

@@ -1,0 +1,181 @@
+.footer {
+    background-color: white;
+    min-height: 20vh;
+    margin-top: 2rem;
+    padding: 20px;
+  }
+  .footer_cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    border-top: 1px solid rgb(219, 218, 218);
+    border-bottom: 1px solid rgb(219, 218, 218);
+  }
+  .footer_sign_in {
+    background-color: yellow;
+    color: black;
+    padding: 6px;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  .start_Here {
+    color: #2162a1;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .footer_Login_details {
+    margin-top: 10px;
+  }
+  .footer_Login_setup {
+    margin-bottom: 10px;
+  }
+  .secondFooter {
+    min-height: 50vh;
+    background-color: #232f3e;
+  }
+  .secondFooter_baclk_top {
+    padding: 12px;
+    background-color: #37475a;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+  }
+  .secondFooter_content {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    max-width: 75vw;
+    margin: auto;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+  .top_li {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .secondFooter_inner_content_ul_li {
+    padding: 6px;
+  }
+  .secondFooter_inner_content_ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 200;
+  }
+  .amazon_img {
+    width: 100px;
+  }
+  .footer_flag {
+    width: 20px;
+  }
+  .language_img_state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgb(83, 83, 83);
+    gap: 20px;
+    min-height: 15vh;
+  }
+  .state {
+    padding: 6px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid grey;
+    width: 80px;
+    color: white;
+  }
+  
+  .language_select {
+    padding: 6px;
+  
+    background-color: #232f3e;
+    color: white;
+  }
+  .bottom_footer {
+    min-height: 20vh;
+    background-color: #131a22;
+  }
+  .bottom_footer {
+    padding: 1.5rem;
+  }
+  .flex_bottom_footer_first {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding: 10px;
+    gap: 5rem;
+    align-items: center;
+  }
+  .flex_bottom_footer_first_content_ul h5 {
+    font-size: 12px;
+    color: rgb(211, 210, 210);
+  }
+  
+  .flex_bottom_footer_first_content_li {
+    font-size: 12px;
+    color: rgb(146, 145, 145);
+  }
+  .portfoli_img {
+    width: 25px;
+    border-radius: 50%;
+  }
+  .my_footer_details {
+    padding: 10px;
+    background-color: #232f3e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .mydetails {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .Mylogo p {
+    background-color: white;
+    color: #11171e;
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: 600;
+  }
+  .github_footer {
+    background-color: #070708;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    border-radius: 6px;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .LinkedIn_footer {
+    background-color: #00a0dc;
+    font-size: 18px;
+    padding: 8px;
+    display: flex;
+    gap: 5px;
+    border-radius: 6px;
+    align-items: center;
+    cursor: pointer;
+  }
+  .Portfolio_footer {
+    background-color: #dc8686;
+    font-size: 18px;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+    border-radius: 6px;
+    align-items: center;
+    cursor: pointer;
+  }
+  
