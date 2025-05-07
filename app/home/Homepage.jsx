@@ -9,7 +9,8 @@ function Homepage() {
   useEffect(()=>{
     const fetchData = async()=>{
       try {
-        const res = await fetch("/api/itemStore/",{
+        // const res = await fetch("/api/itemStore",{
+        const res = await fetch("https://amazon-tau-two.vercel.app/api/itemStore",{
           method:"GET",
           headers: {
             "Content-Type": "application/json",
