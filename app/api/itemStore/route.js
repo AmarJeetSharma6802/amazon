@@ -75,7 +75,7 @@ export async function POST(req) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const tempFilePath = path.join("public", "temp", file.name);
+    const tempFilePath = path.join("/tmp", file.name);
 
     await writeFile(tempFilePath, buffer);
 
