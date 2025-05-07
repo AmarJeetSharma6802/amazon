@@ -38,7 +38,7 @@ export async function PUT(req,{ params}){
     if(file && file.name){
         const buffer = Buffer.from(await file.arrayBuffer());
 
-      const tempDir = "./public/temp";
+        const tempDir = "/tmp";
       await mkdir(tempDir, { recursive: true });
 
       const tempFilePath = `${tempDir}/${file.name}`;
