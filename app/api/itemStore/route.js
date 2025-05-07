@@ -23,40 +23,79 @@ export async function GET() {
   }
 
   
-export async function POST(req) {
-    await DBconnect();
+// export async function POST(req) {
+//     await DBconnect();
   
+//     const formData = await req.formData();
+//     const name = formData.get("name");
+//     const price = formData.get("price");
+//     const title = formData.get("title")
+//     const file = formData.get("image");
+  
+//     if (!file) {
+//       return NextResponse.json({ error: "Image is required" }, { status: 400 });
+//     }
+  
+//     // Save temp file
+//     const buffer = Buffer.from(await file.arrayBuffer());
+//     const tempFilePath = path.join("public", "temp", file.name);
+//     // const tempFilePath = path.join("/tmp", file.name); // ✅ Use /tmp instead of public/temp
+
+//     await writeFile(tempFilePath, buffer);
+  
+//     // Upload to Cloudinary
+//     const uploaded = await uploadOnCloudinary(tempFilePath);
+//     if (!uploaded) {
+//       return NextResponse.json({ error: "Cloudinary upload failed" }, { status: 500 });
+//     }
+  
+//     // Save in DB
+//     const product = await itemApi.create({
+//       name,
+//       price,
+//       title,
+//       image: uploaded.secure_url,
+//     });
+  
+//     return NextResponse.json({ message: "Product Created", product }, { status: 201 });
+//   }
+
+export async function POST(req) {
+  await DBconnect();
+
+  try {
     const formData = await req.formData();
     const name = formData.get("name");
     const price = formData.get("price");
-    const title = formData.get("title")
+    const title = formData.get("title");
     const file = formData.get("image");
-  
+
     if (!file) {
       return NextResponse.json({ error: "Image is required" }, { status: 400 });
     }
-  
-    // Save temp file
+
     const buffer = Buffer.from(await file.arrayBuffer());
     const tempFilePath = path.join("public", "temp", file.name);
-    // const tempFilePath = path.join("/tmp", file.name); // ✅ Use /tmp instead of public/temp
 
     await writeFile(tempFilePath, buffer);
-  
-    // Upload to Cloudinary
+
     const uploaded = await uploadOnCloudinary(tempFilePath);
     if (!uploaded) {
       return NextResponse.json({ error: "Cloudinary upload failed" }, { status: 500 });
     }
-  
-    // Save in DB
+
     const product = await itemApi.create({
       name,
       price,
       title,
       image: uploaded.secure_url,
     });
-  
+
     return NextResponse.json({ message: "Product Created", product }, { status: 201 });
+
+  } catch (error) {
+    console.error("POST error:", error);
+    return NextResponse.json({ error: "Internal Server Error", details: error.message }, { status: 500 });
   }
+}
 
