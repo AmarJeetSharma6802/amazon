@@ -3,6 +3,7 @@ import style from "../style/home.module.css";
 import Image from "next/image";
 import React, { useState, useRef } from "react";
 import "../globals.css";
+import Homepage from "../home/Homepage.jsx"
 
 export default function Home() {
   const imagePath = [
@@ -330,6 +331,8 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+      <Homepage/>
     </>
   );
 }

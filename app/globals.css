@@ -48,6 +48,9 @@ body {
 margin: 1.5rem auto;
 background-color: #fae859;
 }
+.caroucel_container_bg{
+background-color: white;
+}
 
 .carousel-2 {
   display: flex;
@@ -59,6 +62,7 @@ background-color: #fae859;
   scroll-snap-type: x mandatory;
   margin-top: 1rem; 
   -webkit-overflow-scrolling: touch;
+  align-items: center;
 }
 
 /* .carousel-2::-webkit-scrollbar {
@@ -79,6 +83,11 @@ background-color: #fae859;
   background-color: white;
 height: 305px;
 }
+.carousel-item-fetch{
+  height: auto;
+  border: none;
+}
+
 
 .carousel-image-2 {
   width: 100%;

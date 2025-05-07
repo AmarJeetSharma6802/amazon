@@ -52,7 +52,7 @@ export default function App() {
         <SwiperSlide>
           <div className={style.swiper}>
             <div className={style.swiper__item}>
-          <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG25/Home/2025/MHS/April/Mega_home_sale_BAU_PC_-_Powercut_essentials._CB546103503_.jpg" className={style.swiper_img}/>
+          <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/2025/MayART25/GW/ATF/Unrec/PC/13._CB794850845_.jpg" className={style.swiper_img}/>
             </div>
             <div className={style.bg_img}></div>
           </div>

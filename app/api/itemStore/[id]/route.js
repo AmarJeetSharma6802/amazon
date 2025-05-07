@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import DBconnect from "../../lib/DBconnect";
 import itemApi from "../../model/restApi.model";
 import { uploadOnCloudinary } from "../../utils/cloudinary";
+import { writeFile, mkdir } from "fs/promises";
+import fs from "fs";
 
 export async function GET(req,{params}){
     await DBconnect()
@@ -78,3 +80,16 @@ export async function PUT(req,{ params}){
   }
 
 }
+
+export async function DELETE(req, { params }) {
+  const id = params.id;
+
+  const findItem = await itemApi.findByIdAndDelete(id);
+
+  if (!findItem) {
+    return NextResponse.json({ message: "Item nahi mila" }, { status: 404 });
+  }
+
+  return NextResponse.json({ message: "Delete successfully", findItem }, { status: 200 });
+}
+
