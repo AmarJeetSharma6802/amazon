@@ -58,16 +58,33 @@ background-color: white;
   scroll-behavior: smooth;
   gap: 16px; 
   width: 100%;
-  scrollbar-width: none; 
+  scrollbar-width: inherit; 
   scroll-snap-type: x mandatory;
   /* margin-top: 1rem;  */
   -webkit-overflow-scrolling: touch;
   align-items: center;
+   padding-bottom: 20px;
 }
 
 /* .carousel-2::-webkit-scrollbar {
   display: none; 
 } */
+
+.carousel-2::-webkit-scrollbar {
+  height: 10px;
+}
+
+.carousel-2::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.carousel-2::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
 
 .carousel-item-2 {
   flex: 0 0 auto;
@@ -154,4 +171,10 @@ font-size: 13px;
 .caroucel_product_details{
   font-size: 14px;
   padding-top: 3px;
+}
+
+@media (max-width:650px) {
+.scroll-button-2{
+display: none;
+}
 }
