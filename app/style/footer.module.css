@@ -179,3 +179,27 @@
     cursor: pointer;
   }
   
+  @media (max-width:650px) {
+    .secondFooter_content{
+    display: grid;
+    max-width: 95vw;
+    margin: auto;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+.language_img_state {
+    gap: 10px;
+}
+.flex_bottom_footer_first {
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .awesomeFONT{
+    display: none;
+  }
+  .Portfolio_footer{
+    gap: initial;
+  }
+}

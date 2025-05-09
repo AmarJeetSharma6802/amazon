@@ -153,15 +153,15 @@ function SecondFooter() {
       <div className={style.mydetails}>
         <div className={style.github_footer}>
         <span><i className="fa-brands fa-github"></i></span>
-        <span>Github</span>
+        <span className={style.awesomeFONT}>Github</span>
         </div>
         <div className={style.LinkedIn_footer}>
         <span><i className="fa-brands fa-linkedin-in"></i></span>
-        <span>LinkedIn</span>
+        <span className={style.awesomeFONT}>LinkedIn</span>
         </div>
         <div className={style.Portfolio_footer}>
         <span><img src="https://res.cloudinary.com/futurecoder/image/upload/v1742915736/uploads/dc8yiorajevea0nrqldp.png" alt="" className={style.portfoli_img} /></span>
-        <a href="https://portfolio-beta-dusky-34.vercel.app/"> <span> Portfolio </span></a>
+        <a href="https://portfolio-beta-dusky-34.vercel.app/"> <span className={style.awesomeFONT}> Portfolio </span></a>
         </div>
       </div>
     </div>
