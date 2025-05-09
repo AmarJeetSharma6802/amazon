@@ -383,7 +383,7 @@ width:130px;
 .mobile_view_navbar{
     display: none;
 }
-@media (max-width:800) {
+@media (max-width:800px) {
     .mobile_view_navbar{
         display: block;
         height: 150px;
