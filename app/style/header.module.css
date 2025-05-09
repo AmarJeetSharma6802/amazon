@@ -408,6 +408,11 @@ width:130px;
         width: 100%;
         padding: 10px;
     }
+    #search_input{
+        background-color:white;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
     .img_bars{
         display: flex;
         align-items: center;
