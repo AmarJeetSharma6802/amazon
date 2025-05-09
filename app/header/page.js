@@ -3,16 +3,23 @@ import React, { useState, useEffect, useRef } from "react";
 import style from "../style/header.module.css";
 import Secondheader from "./Secondheader";
 import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
+import Image from "next/image";
 
 function Header() {
   const [Allselctor, setAllSlector] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
   const handleslector = () => {
     setAllSlector(!Allselctor);
   };
+ 
+  const handlemobileView = () => {
+    setNavbar(prev => !prev);
+  };
+ 
 
   const handleSearch = async (query) => {
     if (!query.trim()) return;
@@ -31,15 +38,13 @@ function Header() {
 
   // ✅ Detect outside click
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
-        setShowSuggestions(false);
-      }
+    const handleEscape = (e) => {
+      if (e.key === "Escape") setNavbar(false);
     };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
   }, []);
+  
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -53,9 +58,104 @@ function Header() {
   };
   return (
     <>
+    <div className={style.mobile_view_navbar}>
     <div className={style.mobile_view}>
-      
+      <div className={style.img_bars}>
+        <span onClick={handlemobileView} className={style.mobile_bars_Span}><i className="fa-solid fa-bars"></i></span>
+        <Image src="/amazonLogo.png" alt="amazonLogo.png" width={50} height={50} className={style.logo_img_mobile_view}/>
+      </div>
+      <div className={style.sign_Cart_view}>
+      <div className={style.login}>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+
+          {/* User not signed in => show sign in button */}
+          <SignedOut>
+            <SignInButton mode="modal">
+              <div className={style.btn_login}>
+                <button className={style.singIn}>
+                 <span className={style.sign_span}>sign in</span>
+                 <span><i className="fa-solid fa-circle-user"></i></span>
+                </button>
+              </div>
+            </SignInButton>
+          </SignedOut>
+        </div>
+        <div className={style.cartLogo}>
+          <p className={style.cart}>
+            <i className="fa-solid fa-cart-shopping"></i>
+          </p>
+          <p className={style.count}>0</p>
+        </div>
+      </div>
     </div>
+    <div className={style.input_slector}>
+          <div className={style.slector_option}>
+            <div className={style.caret_all} onClick={handleslector}>
+              <p className={style.All}>All</p>
+              <i className="fa-solid fa-caret-down" id={style.caret_down}></i>
+            </div>
+            {Allselctor && (
+              <div className={`${style.slector}`}>
+                <ul className={style.slector_ul}>
+                  <li>Alexa Skills</li>
+                  <li>Amazon Fashions</li>
+                  <li>Amazon Fresh</li>
+                  <li>Amazon Pharmacy</li>
+                  <li>Appliances</li>
+                  <li>Apps & Games</li>
+                  <li>Baby</li>
+                  <li>Beautys</li>
+                  <li>Books</li>
+                  <li>Car & Motorbike</li>
+                  <li>Clothing & Accessories</li>
+                  <li>Computers & Accessories</li>
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div className={style.search} ref={searchBoxRef}>
+            <input
+              type="text"
+              id={style.search_input}
+              placeholder="Search for products"
+              value={searchQuery}
+              onChange={handleChange}
+              onFocus={() => {
+                if (searchQuery.trim()) setShowSuggestions(true);
+              }}
+            />
+            {showSuggestions && searchResults.length > 0 && (
+              <div className={style.suggestionsBox}>
+                <ul>
+                  {searchResults.map((item, index) => (
+                    <li key={index} className={style.serachBar_li}>
+                      {" "}
+                      <span>
+                        {" "}
+                        <i
+                          className="fa-solid fa-magnifying-glass"
+                          id={style.magnifying_search}
+                        ></i>
+                      </span>{" "}
+                      <span>{item.name}</span>{" "}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          <div className={style.searchLogo} onClick={() => handleSearch(searchQuery)}>
+            <i
+              className="fa-solid fa-magnifying-glass"
+              id={style.magnifying}
+            ></i>
+          </div>
+        </div>
+    </div>
+
       <div className={style.topHead}>
         <div className={style.logo}>
           <div className={style.image}>
@@ -179,7 +279,7 @@ function Header() {
         </div>
       </div>
 
-      <Secondheader />
+      <Secondheader navbar={navbar} setNavbar={setNavbar} />
     </>
   );
 }

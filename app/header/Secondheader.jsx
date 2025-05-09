@@ -3,9 +3,9 @@ import style from "../style/header.module.css";
 import { usePathname } from "next/navigation";
 import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 
-function Secondheader() {
+function Secondheader({ navbar, setNavbar }) {
   const path = usePathname();
-  const [navbar,setNavbar] = useState(false)
+  // const [navbar,setNavbar] = useState(false)
   const [activeMenu, setActiveMenu] = useState(null);
 
 

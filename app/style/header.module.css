@@ -375,11 +375,67 @@ color: rgb(238, 191, 89);
 .magnifying_search{
     font-size: 14px;
 }
-.mobile_view_nav{
+/* mobile_view  */
+
+.logo_img_mobile_view{
+width:130px;
+}
+.mobile_view_navbar{
     display: none;
 }
 @media (max-width:800) {
-    .mobile_view_nav{
+    .mobile_view_navbar{
+        display: block;
+        height: 150px;
+    }
+    .topHead , .secondheader_Details{
+        display: none;
+    }
+    .mobile_view_navbar{
+        background-color :rgb(35, 47, 62);
+    }
+   
+    .mobile_view{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px;
+    }
+    .slector_option{
+        display: none;
+    }
+    .input_slector{
+        width: 100%;
+        padding: 10px;
+    }
+    .img_bars{
+        display: flex;
+        align-items: center;
+    }
+    .sign_Cart_view{
+        display: flex;
+        align-items: center; 
+        gap: 10px;
         
+    }
+    .mobile_bars_Span{
+        color: white;
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+    .cartLogo {
+        width: inherit;
+    }
+    .singIn {
+        font-size: 18px;
+        display: flex;
+        gap: 5px;
+    }
+    .navbar_item {
+        width: 252px;
+        position: fixed;
+    }
+    .close {
+        left: 16.5rem;
     }
 }
