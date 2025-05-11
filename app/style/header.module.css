@@ -386,7 +386,7 @@ width:130px;
 .multiIconContainer{
     display: none;
 }
-@media (max-width:800px) {
+@media (max-width:1000px) {
     .mobile_view_navbar{
         display: block;
         height: 145px;
