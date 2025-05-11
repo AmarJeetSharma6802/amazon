@@ -302,7 +302,7 @@ export default function Home() {
           <div className="carousel-2" ref={carouselRef} onScroll={handleScroll}>
             {itemMember.map((item,index) => (
               <div key={index} className="carousel-item-2">
-                <a to={`/slectedHomeImage/${item.id}/${item.FirstP}`}>
+                <a>
                   <img
                     src={item.img}
                     alt={`${item.p} item`}
