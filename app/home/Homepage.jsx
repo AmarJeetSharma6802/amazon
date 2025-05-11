@@ -121,7 +121,7 @@ function Homepage() {
                 alt={item.title || "Image"}
                 width={100}
                 height={200}
-                className="carousel-image-2"
+                className="carousel-image-2 watch_height"
               />
             </div>
           ))}
@@ -134,6 +134,8 @@ function Homepage() {
           <Image src="/right-arrow.png" alt="" width={25} height={25} />
         </button>
       </div>
+
+
     </div>
   )
 }
