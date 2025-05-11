@@ -161,6 +161,56 @@ function Header() {
           <p>Sell</p>
         </div>
     </div>
+     <div className={style.multiIconContainer}>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/21QHbXU96AL._SX100_SY100_.png" alt="" width={50} height={50}/>
+            <p className={style.multiIconContainer_para}>Fashion</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/21CJrl0e7+L._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Groceries</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/21OQCcPV0tL._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Mobiles</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/01SZyAw7k7L._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>MX Player</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/31ICLWjUdHL._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Home</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/11dcI5r-U6L._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Elctronics</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/21-5XYasLKL._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>EveryDay</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/312t+JcSoDL._SX100_SY100_.jpg" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Deals</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/21xXjwTSVIL._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Beauty</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/11V7tDHLoyL._SX100_SY100_.jpg" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Books</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/118lbTsRMWL._SX100_SY100_.jpg" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Appliances</p>
+          </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/21VMZilRtoL._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Insurance</p>
+          </div>
+        </div>
 
       <div className={style.topHead}>
         <div className={style.logo}>
