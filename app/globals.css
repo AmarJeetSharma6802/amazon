@@ -47,6 +47,7 @@ body {
   padding: 20px;
 margin: 1.5rem auto;
 background-color: #fae859;
+border-radius: 4px;
 }
 .caroucel_container_bg{
 background-color: white;
@@ -176,5 +177,11 @@ font-size: 13px;
 @media (max-width:650px) {
 .scroll-button-2{
 display: none;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  top: 8rem !important;
+  color: black !important;
+  display: none !important;
 }
 }

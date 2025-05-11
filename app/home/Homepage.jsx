@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React, { useEffect, useState, useRef } from 'react'
+import style from "../style/home.module.css"
 
 function Homepage() {
   const [data, setData] = useState([])
@@ -69,6 +70,8 @@ function Homepage() {
   return (
     <div>
       {/* Carousel 1 */}
+      <div className={style.bg}>
+      <p className={style.elctronics_title}>Electronics </p>
       <div className="carousel-container-2 caroucel_container_bg">
         <button
           className="scroll-button-2 left-2"
@@ -96,7 +99,7 @@ function Homepage() {
           <Image src="/right-arrow.png" alt="" width={25} height={25} />
         </button>
       </div>
-
+</div>
       {/* Carousel 2 */}
       <div className="carousel-container-2 caroucel_container_bg">
         <button

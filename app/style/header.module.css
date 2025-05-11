@@ -411,8 +411,10 @@ width:130px;
     #search_input{
         background-color:white;
         border-top-left-radius: 6px;
+        padding: 10px;
         border-bottom-left-radius: 6px;
     }
+    
     .img_bars{
         display: flex;
         align-items: center;
@@ -443,4 +445,16 @@ width:130px;
     .close {
         left: 16.5rem;
     } 
+
+    .searchLogo {
+    cursor: pointer;
+    background-color: #eebf59;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 9px 12px;
+   border-radius: 8px;
+    position: absolute;
+    right: 6px;
+    /* margin-top: 1px; */
+    }
 }

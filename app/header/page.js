@@ -120,6 +120,7 @@ function Header() {
             <input
               type="text"
               id={style.search_input}
+              // className={style.search_mobile_view}
               placeholder="Search for products"
               value={searchQuery}
               onChange={handleChange}
