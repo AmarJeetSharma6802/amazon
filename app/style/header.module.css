@@ -386,7 +386,7 @@ width:130px;
 @media (max-width:800px) {
     .mobile_view_navbar{
         display: block;
-        height: 150px;
+        height: 145px;
     }
     .topHead , .secondheader_Details{
         display: none;
@@ -456,5 +456,11 @@ width:130px;
     position: absolute;
     right: 6px;
     /* margin-top: 1px; */
+    }
+    .shop_category_sell{
+        display: flex;
+        gap: 20px;
+        margin-left: 1rem;
+        color: white;
     }
 }

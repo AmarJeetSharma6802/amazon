@@ -155,6 +155,11 @@ function Header() {
             ></i>
           </div>
         </div>
+        <div className={style.shop_category_sell}>
+          <p>Category</p>
+          <p>Deals</p>
+          <p>Sell</p>
+        </div>
     </div>
 
       <div className={style.topHead}>
