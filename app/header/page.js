@@ -210,6 +210,10 @@ function Header() {
             <Image src="https://m.media-amazon.com/images/I/21VMZilRtoL._SX100_SY100_.png" alt="" width={50} height={50}/>
              <p className={style.multiIconContainer_para}>Insurance</p>
           </div>
+          <div className={style.multiIconContainer_img}>
+            <Image src="https://m.media-amazon.com/images/I/215lv40sqoL._SX100_SY100_.png" alt="" width={50} height={50}/>
+             <p className={style.multiIconContainer_para}>Gift Cards</p>
+          </div>
         </div>
 
       <div className={style.topHead}>
