@@ -228,7 +228,7 @@ function Header() {
 
         <div className={style.header_address}>
           <div className={style.location_svg}>
-            <img src="locationLogo.png" id={style.location_img} />
+            <img src="/locationLogo.png" id={style.location_img} />
           </div>
           <div className={style.addressLocation}>
             <p className={style.Delivering}>Delivering to Gurugram 122001</p>
