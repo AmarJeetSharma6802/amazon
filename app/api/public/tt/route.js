@@ -1,20 +1,23 @@
 import { NextResponse } from "next/server";
 import DBconnect from "../../lib/DBconnect.js";
-import { uploadOnCloudinary } from "../../utils/cloudinary";
+import { uploadOnCloudinary } from "../../utils/cloudinary.js";
 import path from "path";
 import { writeFile } from "fs/promises";
-import items from "../../model/item.model.js";
+import os from "os";
+import items from "@/app/api/model/item.model.js";
 
+// GET: Fetch all items
 export async function GET() {
   await DBconnect();
 
   const findItems = await items.find();
-  if (!findItems) {
+  if (!findItems || findItems.length === 0) {
     return NextResponse.json({ message: "Items not found" }, { status: 404 });
   }
+
   return NextResponse.json(
-    { message: "items found succefully", findItems },
-    { status: 404 }
+    { message: "Items found successfully", findItems },
+    { status: 201 }
   );
 }
 
@@ -30,33 +33,36 @@ export async function POST(req) {
     const offer = formData.get("offer");
     const file = formData.get("image");
 
-    if (!file) {
-      return NextResponse.json({ error: "Image is required" }, { status: 400 });
-    }
-    const buffer = Buffer.from(await file.arrayBuffer());
-    const tempFilePath = path.join("/tmp", file.Details);
+   if (!file) {
+        return NextResponse.json({ error: "Image is required" }, { status: 400 });
+      }
 
-    await writeFile(tempFilePath, buffer);
-    const uploaded = await uploadOnCloudinary(tempFilePath);
+     const buffer = Buffer.from(await file.arrayBuffer());
+    
+    const tempFilePath = path.join("public", "temp", file.name);
+         await writeFile(tempFilePath, buffer);
+
+          const uploaded = await uploadOnCloudinary(tempFilePath);
     if (!uploaded) {
-      return NextResponse.json(
-        { error: "Cloudinary upload failed" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Cloudinary upload failed" }, { status: 500 });
     }
 
-    const items = await items.create({
-        Details,
-        offer,
-        rating,
-        totalReviews,
-        price,
-        image: uploaded.secure_url
-    })
+    const product = await items.create({
+      Details,
+      rating,
+      totalReviews,
+      price,
+      offer,
+      image: uploaded.secure_url,
+    });
 
-     return NextResponse.json({ message: "Product Created", items }, { status: 201 });
+    return NextResponse.json({ message: "Product Created", product }, { status: 201 });
+
   } catch (error) {
     console.error("POST error:", error);
-        return NextResponse.json({ error: "Internal Server Error", details: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error", details: error.message },
+      { status: 500 }
+    );
   }
 }

@@ -5,8 +5,8 @@ const itemSchema = new mongoose.Schema({
   rating: String,
   totalReviews: Number,
   price: Number,
-  offer: Number,
-  image: String,
+  offer: String,
+  image:String
 },
 {
     timestamps:true
