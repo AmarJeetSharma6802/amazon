@@ -2,18 +2,19 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { writeFile } from "fs/promises";
 import path from "path";
 import { NextResponse } from "next/server";
-import productItems from "../model/product.model.js"
+import Product from "../model/product.model.js"
 import DBconnect from "../lib/DBconnect.js"
 
 export const config = {
-  api: {
-    bodyParser: false, // Needed for handling file uploads
-  },
-};
+    api: {
+      bodyParser: false
+    }
+  };
 
 export async function GET(req, { params }) {
   try {
-    const finditems = await productItems.find();
+    const finditems = await Product.find();
+
     if (!finditems || finditems.length === 0) {
       return NextResponse.json({ message: "Items not found" }, { status: 404 });
     }
@@ -23,34 +24,46 @@ export async function GET(req, { params }) {
       { status: 200 }
     );
   } catch (error) {
-    return NextResponse.json({ message: "Server error", error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { message: "Server error", error: error.message },
+      { status: 500 }
+    );
   }
 }
 
-// ✅ ADD THIS
 export async function POST(req) {
-  try {
+   await DBconnect()
+    try {
     const formData = await req.formData();
+    const Details = formData.get("Details");
+    const price = formData.get("price");
+    const rating = formData.get("rating");
+    const totalReviews = formData.get("totalReviews");
+    const offer = formData.get("offer");
+    const file = formData.get("image");
 
-    const imageFile = formData.get("image");
-    const buffer = Buffer.from(await imageFile.arrayBuffer());
-
-    const tempFilePath = path.join(process.cwd(), "temp", imageFile.name);
+    if (!file) {
+          return NextResponse.json({ error: "Image is required" }, { status: 400 });
+        }
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const tempFilePath = path.join("/tmp", file.name)
     await writeFile(tempFilePath, buffer);
-
-    const uploadResponse = await uploadOnCloudinary(tempFilePath);
-
-    const newItem = await productItems.create({
-      image: uploadResponse.url,
-      offer: formData.get("offer"),
-      rating: formData.get("rating"),
-      totalReviews: formData.get("totalReviews"),
-      price: formData.get("price"),
-      details: formData.get("details"),
-    });
-
-    return NextResponse.json({ message: "Item uploaded", data: newItem }, { status: 201 });
-  } catch (error) {
-    return NextResponse.json({ message: "Upload error", error: error.message }, { status: 500 });
-  }
+    const uploaded = await uploadOnCloudinary(tempFilePath);
+if (!uploaded) {
+      return NextResponse.json({ error: "Cloudinary upload failed" }, { status: 500 });
+    }
+        
+    const product = await Product.create({
+        Details,
+        price,
+        rating,
+        totalReviews,
+        offer,
+        image: uploaded.secure_url
+    })
+    return NextResponse.json({ message: "Product Created", product }, { status: 201 });
+    } catch (error) {
+          console.error("POST error:", error);
+    return NextResponse.json({ error: "Internal Server Error", details: error.message }, { status: 500 });
+    }
 }
