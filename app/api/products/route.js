@@ -11,7 +11,7 @@ export const config = {
   },
 };
 
-export async function GET(req, { params }) {
+export async function GET() {
   try {
     const items = await Product.find();
 
