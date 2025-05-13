@@ -13,6 +13,6 @@ Details :String,
 }
 )
 
-const productItems = mongoose.model.productItems || mongoose.model("productItems",ProductSchema)
+const productItems = mongoose.models.productItems || mongoose.model("productItems",ProductSchema)
 
 export default productItems
