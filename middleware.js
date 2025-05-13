@@ -6,7 +6,7 @@ const isPublicRoute = createRouteMatcher([
   '/', 
   // '/api/itemStore',
   '/api/itemStore(.*)',
-  '/api/public(.*)',  // ✅ Covers both itemStore & productList ise use karne liye public folder ke ander dalna hoga
+  '/api/AcItems(.*)',  // ✅ Covers both itemStore & productList ise use karne liye public folder ke ander dalna hoga
   '/innerItems/(.*)',
 ]);
 
