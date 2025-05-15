@@ -107,12 +107,13 @@ height: 305px;
 }
 .watch_item_size{
   width: 200px; 
-  height: 220px;
+  height: auto;
 
 }
 
 .carousel-image-2 {
   width: 100%;
+  height: auto;
   border-radius: 0px;
 }
 
@@ -194,6 +195,7 @@ display: none;
   /* height: 100%; */
 }
 .watch_height{
+  width: auto;
   height: 100%;
 }
 

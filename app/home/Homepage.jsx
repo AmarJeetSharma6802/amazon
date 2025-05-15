@@ -119,7 +119,7 @@ function Homepage() {
               <Image
                 src={item.img}
                 alt={item.title || "Image"}
-                width={100}
+                width={200}
                 height={200}
                 className="carousel-image-2 watch_height"
               />
