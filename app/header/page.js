@@ -36,7 +36,6 @@ function Header() {
   
   const searchBoxRef = useRef(null);
 
-  // ✅ Detect outside click
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") setNavbar(false);

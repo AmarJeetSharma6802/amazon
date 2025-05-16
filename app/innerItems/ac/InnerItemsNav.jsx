@@ -9,16 +9,16 @@ function InnerItemsNav() {
   const [isHover, setIsHover] = useState(false);
   const [nav ,setNav] = useState(false)
 
-//   const ref =useRef ({
-// Kitchen :null,
-// HomeFurnishing:null,
-// Furniture:null
-//   })
+ const toggleKitchenMenu = () => {
+    setIsHoverKitch(!isHoverKitch);
+  };
 
-  // const handleDrop=(section)=>{
-  //   ref.current[section]?.classList.toggle('show');
-  // }
-
+  const toggleFurnitureMenu = () => {
+    setIsHoverFurniture(!isHoverFurniture);
+  };
+  const toggleHover = () => {
+    setIsHover(!isHover);
+  };
 
   const handleNav =()=>{
     setNav(prev => !prev)
@@ -44,14 +44,14 @@ function InnerItemsNav() {
             </div></li>
           <li className={`${style.amazon_items_li} ${style.amazon_items_li_hover}`}
            onMouseEnter={() => setIsHoverKitch (true)}
-            // onClick={() => handleDrop("Kitchen")}
-            // ref={(el) => (ref.current.Kitchen = el)}
+           onClick={toggleKitchenMenu}
           ><div className={style.felx_arrow}> Kitchen & Home Appliances <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div>
           { 
             isHoverKitch && (
-                <div className={style.inner_div}
+                <div className={`${style.inner_div} ${isHoverKitch ? style.show : ""}`}
                  onMouseEnter={() => setIsHoverKitch(true)}
                 onMouseLeave={() => setIsHoverKitch(false)}
+
                 >
               <div className={style.inner_div_left}>
 
@@ -117,10 +117,10 @@ function InnerItemsNav() {
           <li className={style.amazon_items_li}> <div className={style.felx_arrow}>
             Large Appliances <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div></li>
           <li className={style.amazon_items_li}><div className={style.felx_arrow}>Kitchen & Dining <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div></li>
-          <li className={style.amazon_items_li}onClick={()=>handleDrop("Furniture")} onMouseEnter={() => setIsHoverFurniture (true)} ><div className={style.felx_arrow}>Furniture <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div>
+          <li className={style.amazon_items_li}onClick={toggleFurnitureMenu} onMouseEnter={() => setIsHoverFurniture (true)} ><div className={style.felx_arrow}>Furniture <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div>
             { 
             isHoverFurniture && (
-                <div className={style.inner_div}
+                <div className={`${style.inner_div} ${isHoverFurniture ? style.show :""}`}
                  onMouseEnter={() => setIsHoverFurniture(true)}
                 onMouseLeave={() => setIsHoverFurniture(false)}
                 >
@@ -185,10 +185,10 @@ function InnerItemsNav() {
             )
           }
           </li>
-          <li className={style.amazon_items_li} onClick={()=>handleDrop("HomeFurnishing")} onMouseEnter={() => setIsHover(true)}> <div className={style.felx_arrow}>Home Furnishing <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div>
+          <li className={style.amazon_items_li} onClick={toggleHover} onMouseEnter={() => setIsHover(true)}> <div className={style.felx_arrow}>Home Furnishing <span className={style.mobile_view_down_arrow}><i className="fa-solid fa-angle-down"></i></span></div>
             { 
             isHover && (
-                <div className={style.inner_div}
+                <div className={`${style.inner_div} ${isHover ? style.show :""}`}
                  onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
                 >
