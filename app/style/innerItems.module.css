@@ -52,3 +52,79 @@
 .inner_div:hover {
     display: flex;
 } */
+
+.mobile_view_amazon_items_filters{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 2rem;
+    background-color: white;
+    align-items: center;
+    display: none;
+}
+.mobile_view_amazon_items_details ,.mobile_view_amazon_items_filters_details{
+    display: flex ;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.mobile_view_down_arrow{
+    display: none;
+}
+
+@media (max-width:1000px) {
+    .mobile_view_amazon_items_filters{
+        display: flex;
+    }
+    .mobile_view_down_arrow{
+    display: block;
+}
+    .amazon_items {
+    position: relative;
+ overflow: auto;  
+ transition: 1s; 
+ display: none;
+}
+
+.amazon_items.active{
+display: block;
+}
+.amazon_items_ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.amazon_items_li{
+    padding: 1rem;
+}
+.felx_arrow{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+.inner_div {
+    height: auto;
+    position: static;
+    flex-direction: column;
+    align-items: inherit;
+    display: none;
+}
+.inner_div.show{
+    display: flex;
+}
+
+.inner_div_left, .inner_div_right {
+    margin-top: 2rem;
+    justify-content: space-around;
+    width: 100%;
+    display: flex
+;
+}
+
+.mobile_view_width_img{
+    display: none;
+}
+}
