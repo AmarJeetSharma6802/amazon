@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: space-evenly;
     top: 2.4rem;
-    display: none;
+    display: flex;
     transition: 0.6s;
 }
 
@@ -46,7 +46,7 @@
     display: flex;
     gap: 20px;
 }
-.amazon_items_li_hover:hover .inner_div,
+/* .amazon_items_li_hover:hover .inner_div,
 .inner_div:hover {
     display: flex;
-}
+} */
