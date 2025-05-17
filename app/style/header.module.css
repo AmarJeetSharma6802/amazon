@@ -81,7 +81,7 @@ width: 25px;
     overflow-y: auto;
     border-radius: 4px;
     width: 14vw;
-    z-index: 9;
+    z-index: 9999;
 }
 .slector_ul li{
     padding: 7px;

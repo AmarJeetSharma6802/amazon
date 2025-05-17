@@ -42,6 +42,7 @@ const handleFilter =()=>{
         <span><i className="fa-solid fa-sliders"></i></span>
       </div>
     </div>
+     
       <div className={`${style.amazon_items} ${nav ? style.active:""}`}>
         <ul className={style.amazon_items_ul}>
            <li className={style.amazon_items_li}><div className={style.felx_arrow}>
