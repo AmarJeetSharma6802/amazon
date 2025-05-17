@@ -2,12 +2,15 @@
 import React,{useRef, useState} from "react";
 import style from "../../style/innerItems.module.css";
 import Image from "next/image";
+import { useFilter } from "../FilterContext";
 
 function InnerItemsNav() {
   const [isHoverKitch, setIsHoverKitch] = useState(false);
   const [isHoverFurniture, setIsHoverFurniture] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [nav ,setNav] = useState(false)
+  const { filter, setFilter } = useFilter();
+
 
  const toggleKitchenMenu = () => {
     setIsHoverKitch(!isHoverKitch);
@@ -24,7 +27,9 @@ function InnerItemsNav() {
     setNav(prev => !prev)
   }
   
-
+const handleFilter =()=>{
+  setFilter(!filter)
+}
   return (
     <>
     <div className={style.mobile_view_amazon_items_filters}>
@@ -32,7 +37,7 @@ function InnerItemsNav() {
         <span><i className="fa-solid fa-bars"></i></span>
         <span>Amazon Home </span>
       </div>
-      <div className={style.mobile_view_amazon_items_filters_details} >
+      <div className={style.mobile_view_amazon_items_filters_details} onClick={handleFilter} >
         <span>Filter </span>
         <span><i className="fa-solid fa-sliders"></i></span>
       </div>

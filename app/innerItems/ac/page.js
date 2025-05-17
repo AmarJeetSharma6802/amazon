@@ -1,16 +1,64 @@
 "use client";
 import React, { useState } from "react";
 import style from "../../style/innerItems.module.css";
+import Image from "next/image";
+import { useFilter } from "../FilterContext";
+
 function Page() {
+  const {filter} = useFilter()
+
   const [price, setPrice] = useState(31000);
 
   const ProductItems = [
-    {}
+    {
+      id:1,
+      details:"Daikin 1.5 Ton 3 Star Inverter Split AC (Copper, PM 2.5 Filter, Triple Display, Dew Clean",
+      stars:"★ ★ ★ ★ ",
+      lastStars:<i className="fa-regular fa-star"></i>,
+      offer:"36%",
+      p:"FREE delivery as soon as Sat, 24 May, 7 am - 9 pm",
+      paid:"Service: Paid Installation",
+      img:"https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg",
+      price:"37,490"
+    },
+    {
+      id:2,
+      details:"Daikin 1.5 Ton 5 Star Inverter Split AC (Copper, PM 2.5 Filter, MTKM50U, White)",
+      stars:"★ ★ ★ ★ ",
+      lastStars:<i className="fa-regular fa-star"></i>,
+      offer:"36%",
+      p:"FREE delivery as soon as Sat, 24 May, 7 am - 9 pm",
+      paid:"Service: Paid Installation",
+      img:"https://m.media-amazon.com/images/I/6179B4CYGTL._AC_UL320_.jpg",
+      price:"45,990"
+    },
+    {
+      id:3,
+      details:"Daikin 0.8 Ton 3 Star, Fixed Speed Split AC (Copper, PM 2.5 Filter, 2022 Model, FTL28U, White)",
+      stars:"★ ★ ★ ★ ",
+      lastStars:<i className="fa-regular fa-star"></i>,
+      offer:"40%",
+      p:"FREE delivery as soon as Sat, 24 May, 7 am - 9 pm",
+      paid:"Service: Paid Installation",
+      img:"https://m.media-amazon.com/images/I/61mOVGinDdL._AC_UL320_.jpg",
+      price:"26,490"
+    },
+    {
+      id:4,
+      details:"Lloyd 1.0 Ton 3 Star Inverter Split AC (5 in 1 Convertible, Copper, Anti-Viral + PM 2.5 Filter, 2023 Model, White with Chrome Deco Strip, GLS12I3FWAEV/WAEA)",
+      stars:"★ ★ ★ ★ ",
+      lastStars:<i className="fa-regular fa-star"></i>,
+      offer:"29%",
+      p:"FREE delivery as soon as Sat, 24 May, 7 am - 9 pm",
+      paid:"Service: Paid Installation",
+      img:"https://m.media-amazon.com/images/I/41BJCIurt6L._AC_UL320_.jpg",
+      price:"29,990"
+    },
   ]
   return (
     <>
       <div className={style.flex_content}>
-        <div className={style.flex_content_left}>
+        <div className={`${style.flex_content_left} ${filter ? style.active:""}`}>
           <p className={style.flex_content_left_para}>Category</p>
           <ul className={style.flex_content_left_ul}>
             <p>Home & Kitchen</p>
@@ -132,7 +180,24 @@ function Page() {
           </ul>
         </div>
         <div className={style.flex_content_right}>
-          <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
+          <div className={style.right_grid}>
+          {
+            ProductItems.map((item)=>{
+              return(
+               <div key={item.id} className={style.product_right_side}>
+                  <Image src={item.img} width={100} height={100} className={style.image_right_side} alt={item.details}/>
+                  <p>{item.details}</p>
+                  <p> <span>{item.stars}</span> <span>{item.lastStars}</span></p>
+                  <p><span className={style.price_sign}>₹</span> <span className={style.price} >{item.price}</span></p>
+                  <p>{item.offer}</p>
+                  <p>{item.p}</p>
+                  <p>{item.paid}</p>
+                  <button>Add to cart</button>
+                </div>
+              )
+            })
+          }
+          </div>
         </div>
       </div>
     </>
