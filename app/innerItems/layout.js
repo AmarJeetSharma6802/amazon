@@ -1,5 +1,5 @@
 "use client"
-import React,{useState} from "react";
+import React from "react";
 import InnerItemsNav from "./ac/InnerItemsNav";
 import { FilterProvider } from "./FilterContext";
 
