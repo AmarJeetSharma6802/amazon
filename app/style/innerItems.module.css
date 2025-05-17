@@ -76,18 +76,52 @@
 /* AC_content */
 .flex_content{
 background-color: white;
-min-height: 100vh;
+/* min-height: calc(100vh - 150px); */
+min-height: 100vh ;
 position: relative;
 z-index: 999;
 display: flex;
+gap: 20px;
 }
 .flex_content_left{
-    width: 25%;
+    background-color: rgb(246, 246, 246);
+    width: 16%;
     padding: 10px;
+     position: sticky;
+    top: 0;
+    align-self: flex-start;
+    /* height: fit-content */
 }
 .flex_content_left_ul{
     padding: 10px;
 }
+.flex_content_left_ul_flex{
+    display: flex;
+}
+.flex_content_left_ul_li{
+    padding: 5px;
+    font-size: 14px;
+}
+.star_span{
+    color: goldenrod;
+    font-size: 18px;
+}
+.price_para{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.input_price{
+    width: 120px;
+    cursor: pointer;
+}
+
+.flex_content_left_ul_li_inputBox{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
 
 @media (max-width:1200px) {
     .mobile_view_amazon_items_filters{
