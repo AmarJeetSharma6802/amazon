@@ -148,6 +148,7 @@ display: block;
     min-height: 100vh;
     flex-direction: column;
     overflow-y: auto;
+    z-index: 9999;
 }
 .amazon_items_li{
     padding: 1rem;

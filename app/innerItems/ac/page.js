@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import style from "../../style/innerItems.module.css";
 function Page() {
   const [price, setPrice] = useState(31000);
+
+  const ProductItems = [
+    {}
+  ]
   return (
     <>
       <div className={style.flex_content}>
@@ -128,11 +132,6 @@ function Page() {
           </ul>
         </div>
         <div className={style.flex_content_right}>
-          <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
-          <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
-          <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
-          <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
-          <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
           <img src="https://m.media-amazon.com/images/I/61JyEPdw3UL._AC_UL320_.jpg"/>
         </div>
       </div>
