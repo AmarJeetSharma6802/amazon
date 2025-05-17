@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import style from "../../style/innerItems.module.css";
-function page() {
+function Page() {
   const [price, setPrice] = useState(31000);
   return (
     <>
@@ -140,4 +140,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
