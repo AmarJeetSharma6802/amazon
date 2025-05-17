@@ -4,8 +4,10 @@ import style from "../style/header.module.css";
 import Secondheader from "./Secondheader";
 import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 function Header() {
+   const router = useRouter();
   const [Allselctor, setAllSlector] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -55,13 +57,17 @@ function Header() {
       setShowSuggestions(false);
     }
   };
+  
+  const handleHome =()=>{
+    router.push("/")
+  }
   return (
     <>
     <div className={style.mobile_view_navbar}>
     <div className={style.mobile_view}>
       <div className={style.img_bars}>
         <span onClick={handlemobileView} className={style.mobile_bars_Span}><i className="fa-solid fa-bars"></i></span>
-        <Image src="/amazonLogo.png" alt="amazonLogo.png" width={50} height={50} className={style.logo_img_mobile_view}/>
+        <Image src="/amazonLogo.png" alt="amazonLogo.png" width={50} height={50} className={style.logo_img_mobile_view} onClick={handleHome}/>
       </div>
       <div className={style.sign_Cart_view}>
       <div className={style.login}>
@@ -218,7 +224,7 @@ function Header() {
       <div className={style.topHead}>
         <div className={style.logo}>
           <div className={style.image}>
-            <img src="/amazonLogo.png" id={style.img_logo} />
+            <img src="/amazonLogo.png" id={style.img_logo}  onClick={handleHome} />
           </div>
           <div className={style.div_p}>
             <p className={style.in}>.in</p>

@@ -15,6 +15,7 @@
     border: 1px solid white;
 }
 #img_logo{
+    cursor: pointer;
     width: 130px;
 }
 .in{
