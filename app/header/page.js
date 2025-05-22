@@ -152,7 +152,15 @@ function Header() {
               <div className={style.suggestionsBox}>
                 <ul>
                   {searchResults.map((item, index) => (
-                    <li key={index} className={style.serachBar_li}>
+                    <li key={index} className={style.serachBar_li}  onClick={() => {
+                        router.push(
+                          `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(
+                            item.name
+                          )}`
+                        );
+                          setShowSuggestions(false);
+                        setSearchQuery(item.name);
+                      }}>
                       {" "}
                       <span>
                         {" "}
