@@ -1,6 +1,11 @@
 import React, { Suspense } from 'react';
 import Refrigerators from './Refrigerators';
 
+export const metadata = {
+  title: 'Refrigerators',
+  description: 'Browse all refrigerators from top brands',
+};
+
 export default function Page() {
   return (
     <Suspense fallback={<div>Loading component...</div>}>
