@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import style from "../style/header.module.css";
 import Secondheader from "./Secondheader";
 import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
@@ -7,41 +7,58 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 function Header() {
-  const router = useRouter();
+  // States
   const [Allselctor, setAllSlector] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const searchBoxRef = useRef(null);
+  const router = useRouter();
 
-  const handleslector = () => {
+  
+  function handleslector() {
     setAllSlector(!Allselctor);
-  };
+  }
 
-  const handlemobileView = () => {
+  function handlemobileView() {
     setNavbar((prev) => !prev);
-  };
+  }
 
-  const handleSearch = async (query) => {
-    // console.log("handleSearch called with query:", query); 
-    if (!query.trim()) return;
+  async function handleSearch(query) {
+    if (!query.trim()) {
+      setSearchResults([]);
+      setShowSuggestions(false);
+      return;
+    }
+
     try {
-      const res = await fetch(`/api/itemStore/searchBar?query=${encodeURIComponent(query)}`);
-      const data = await res.json();
-      console.log("Search results:", data.results); 
-      setSearchResults(data.results || []); 
+      // First API (Local)
+      const itemStoreRes = await fetch(`/api/itemStore/searchBar?query=${encodeURIComponent(query)}`);
+      const itemStoreData = itemStoreRes.ok ? await itemStoreRes.json() : { results: [] };
+      const itemStoreResults = Array.isArray(itemStoreData.results) ? itemStoreData.results : [];
+
+      // Second API (via Proxy)
+      const externalRes = await fetch(`/api/external/itemApi/search?query=${encodeURIComponent(query)}`);
+      const externalData = externalRes.ok ? await externalRes.json() : { results: [] };
+      const externalResults = Array.isArray(externalData.results) ? externalData.results : [];
+
+      const combinedResults = [
+        ...itemStoreResults.map((item) => ({ ...item, source: "itemStore" })),
+        ...externalResults.map((item) => ({ ...item, source: "external" })),
+      ];
+
+      setSearchResults(combinedResults);
       setShowSuggestions(true);
     } catch (err) {
-      console.error("Search failed", err);
+      console.log("Search failed:", err.message);
       setSearchResults([]);
       setShowSuggestions(false);
     }
-  };
+  }
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     const value = e.target.value;
-    console.log("Search query:", value); 
     setSearchQuery(value);
     if (value.trim()) {
       handleSearch(value);
@@ -49,21 +66,49 @@ function Header() {
       setSearchResults([]);
       setShowSuggestions(false);
     }
-  };
+  }
 
-  useEffect(() => {
-    console.log("searchBoxRef:", searchBoxRef.current); 
-    const handleClickOutside = (event) => {
+  function handleClickOutside(event) {
+    if (
+      searchBoxRef.current &&
+      !searchBoxRef.current.contains(event.target) &&
+      !event.target.closest(`.${style.suggestionsBox}`)
+    ) {
+      setShowSuggestions(false);
+    }
+  }
 
-      if (
-        searchBoxRef.current &&
-        !searchBoxRef.current.contains(event.target) &&
-        !event.target.closest(`.${style.suggestionsBox}`)
-      ) {
-        console.log("Clicked outside, closing suggestions"); // Debug
-        setShowSuggestions(false);
-      }
-    };
+  function handleHome() {
+    router.push("/");
+  }
+
+  function handleSuggestionClick(item) {
+    let url;
+    if (item.source === "itemStore" || item.name.toLowerCase().includes("refrigerator")) {
+      url = `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(item.name)}`;
+    } else {
+      url = `/innerItems/ac?scrollTo=${encodeURIComponent(item.name)}`;
+    }
+    router.push(url);
+    setShowSuggestions(false);
+    setSearchQuery(item.name);
+  }
+
+  async function handleSearchAndNavigate(query) {
+    if (!query.trim()) return;
+    await handleSearch(query);
+    let url;
+    if (query.toLowerCase().includes("refrigerator")) {
+      url = `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(query)}`;
+    } else {
+      url = `/innerItems/ac?scrollTo=${encodeURIComponent(query)}`;
+    }
+    router.push(url);
+    setShowSuggestions(false);
+  }
+
+  // Add event listeners for clicking outside
+  React.useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchstart", handleClickOutside);
     return () => {
@@ -71,19 +116,6 @@ function Header() {
       document.removeEventListener("touchstart", handleClickOutside);
     };
   }, []);
-
-  const handleHome = () => {
-    router.push("/");
-  };
-
-  const handleSuggestionClick = (itemName) => {
-    // console.log("Suggestion clicked, navigating to:", itemName); 
-    const url = `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(itemName)}`;
-    // console.log("Navigation URL:", url); 
-    router.push(url);
-    setShowSuggestions(false);
-    setSearchQuery(itemName);
-  };
 
   return (
     <>
@@ -135,7 +167,7 @@ function Header() {
               <i className="fa-solid fa-caret-down" id={style.caret_down}></i>
             </div>
             {Allselctor && (
-              <div className={`${style.slector}`}>
+              <div className={style.slector}>
                 <ul className={style.slector_ul}>
                   <li>Alexa Skills</li>
                   <li>Amazon Fashions</li>
@@ -171,11 +203,11 @@ function Header() {
                     <li
                       key={index}
                       className={style.serachBar_li}
-                      onClick={() => handleSuggestionClick(item.name)}
+                      onClick={() => handleSuggestionClick(item)}
                       onTouchEnd={(e) => {
-                        e.preventDefault(); // Prevent default touch behaviors
-                        handleSuggestionClick(item.name);
-                      }} // Use onTouchEnd instead of onTouchStart
+                        e.preventDefault();
+                        handleSuggestionClick(item);
+                      }}
                     >
                       <span>
                         <i className="fa-solid fa-magnifying-glass" id={style.magnifying_search}></i>
@@ -189,8 +221,8 @@ function Header() {
           </div>
           <div
             className={style.searchLogo}
-            onClick={() => handleSearch(searchQuery)}
-            onTouchStart={() => handleSearch(searchQuery)}
+            onClick={() => handleSearchAndNavigate(searchQuery)}
+            onTouchStart={() => handleSearchAndNavigate(searchQuery)}
           >
             <i className="fa-solid fa-magnifying-glass" id={style.magnifying}></i>
           </div>
@@ -203,120 +235,55 @@ function Header() {
       </div>
       <div className={style.multiIconContainer}>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/21QHbXU96AL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/21QHbXU96AL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Fashion</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/21CJrl0e7+L._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/21CJrl0e7+L._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Groceries</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/21OQCcPV0tL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/21OQCcPV0tL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Mobiles</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/01SZyAw7k7L._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/01SZyAw7k7L._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>MX Player</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/31ICLWjUdHL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/31ICLWjUdHL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Home</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/11dcI5r-U6L._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
-          <p className={style.multiIconContainer_para}>Elctronics</p>
+          <Image src="https://m.media-amazon.com/images/I/11dcI5r-U6L._SX100_SY100_.png" alt="" width={50} height={50} />
+          <p className={style.multiIconContainer_para}>Electronics</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/21-5XYasLKL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/21-5XYasLKL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>EveryDay</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/312t+JcSoDL._SX100_SY100_.jpg"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/312t+JcSoDL._SX100_SY100_.jpg" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Deals</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/21xXjwTSVIL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/21xXjwTSVIL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Beauty</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/11V7tDHLoyL._SX100_SY100_.jpg"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/11V7tDHLoyL._SX100_SY100_.jpg" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Books</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/118lbTsRMWL._SX100_SY100_.jpg"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/118lbTsRMWL._SX100_SY100_.jpg" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Appliances</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/21VMZilRtoL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/21VMZilRtoL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Insurance</p>
         </div>
         <div className={style.multiIconContainer_img}>
-          <Image
-            src="https://m.media-amazon.com/images/I/215lv40sqoL._SX100_SY100_.png"
-            alt=""
-            width={50}
-            height={50}
-          />
+          <Image src="https://m.media-amazon.com/images/I/215lv40sqoL._SX100_SY100_.png" alt="" width={50} height={50} />
           <p className={style.multiIconContainer_para}>Gift Cards</p>
         </div>
       </div>
@@ -348,7 +315,7 @@ function Header() {
               <i className="fa-solid fa-caret-down" id={style.caret_down}></i>
             </div>
             {Allselctor && (
-              <div className={`${style.slector}`}>
+              <div className={style.slector}>
                 <ul className={style.slector_ul}>
                   <li>Alexa Skills</li>
                   <li>Amazon Fashions</li>
@@ -385,11 +352,11 @@ function Header() {
                     <li
                       key={index}
                       className={style.serachBar_li}
-                      onClick={() => handleSuggestionClick(item.name)}
+                      onClick={() => handleSuggestionClick(item)}
                       onTouchEnd={(e) => {
-                        e.preventDefault(); // Prevent default touch behaviors
-                        handleSuggestionClick(item.name);
-                      }} // Use onTouchEnd instead of onTouchStart
+                        e.preventDefault();
+                        handleSuggestionClick(item);
+                      }}
                     >
                       <span>
                         <i className="fa-solid fa-magnifying-glass" id={style.magnifying_search}></i>
@@ -403,8 +370,8 @@ function Header() {
           </div>
           <div
             className={style.searchLogo}
-            onClick={() => handleSearch(searchQuery)}
-            onTouchStart={() => handleSearch(searchQuery)}
+            onClick={() => handleSearchAndNavigate(searchQuery)}
+            onTouchStart={() => handleSearchAndNavigate(searchQuery)}
           >
             <i className="fa-solid fa-magnifying-glass" id={style.magnifying}></i>
           </div>
@@ -435,7 +402,7 @@ function Header() {
         </div>
         <div className={style.return}>
           <p className={style.retruns}>Returns</p>
-          <p className={style.orders}>& Oders</p>
+          <p className={style.orders}>& Orders</p>
         </div>
 
         <div className={style.cartLogo}>
