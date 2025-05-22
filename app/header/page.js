@@ -4,28 +4,27 @@ import style from "../style/header.module.css";
 import Secondheader from "./Secondheader";
 import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 function Header() {
-   const router = useRouter();
+  const router = useRouter();
   const [Allselctor, setAllSlector] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [navbar, setNavbar] = useState(false);
+  const searchBoxRef = useRef(null);
 
   const handleslector = () => {
     setAllSlector(!Allselctor);
   };
- 
-  const handlemobileView = () => {
-    setNavbar(prev => !prev);
-  };
- 
 
-  const handleSearch = async (query) => {
+  const handlemobileView = () => {
+    setNavbar((prev) => !prev);
+  };
+
+   const handleSearch = async (query) => {
     if (!query.trim()) return;
-  
     try {
       const res = await fetch(`/api/itemStore/searchBar?query=${encodeURIComponent(query)}`);
       const data = await res.json();
@@ -35,17 +34,6 @@ function Header() {
       console.error("Search failed", err);
     }
   };
-  
-  const searchBoxRef = useRef(null);
-
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape") setNavbar(false);
-    };
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, []);
-  
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -57,45 +45,72 @@ function Header() {
       setShowSuggestions(false);
     }
   };
-  
-  const handleHome =()=>{
-    router.push("/")
-  }
+
+  // Click outside handler to close suggestions
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Agar clicked element searchBoxRef ke andar nahi hai to close suggestions
+      if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
+  const handleHome = () => {
+    router.push("/");
+  };
   return (
     <>
-    <div className={style.mobile_view_navbar}>
-    <div className={style.mobile_view}>
-      <div className={style.img_bars}>
-        <span onClick={handlemobileView} className={style.mobile_bars_Span}><i className="fa-solid fa-bars"></i></span>
-        <Image src="/amazonLogo.png" alt="amazonLogo.png" width={50} height={50} className={style.logo_img_mobile_view} onClick={handleHome}/>
-      </div>
-      <div className={style.sign_Cart_view}>
-      <div className={style.login}>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+      <div className={style.mobile_view_navbar}>
+        <div className={style.mobile_view}>
+          <div className={style.img_bars}>
+            <span onClick={handlemobileView} className={style.mobile_bars_Span}>
+              <i className="fa-solid fa-bars"></i>
+            </span>
+            <Image
+              src="/amazonLogo.png"
+              alt="amazonLogo.png"
+              width={50}
+              height={50}
+              className={style.logo_img_mobile_view}
+              onClick={handleHome}
+            />
+          </div>
+          <div className={style.sign_Cart_view}>
+            <div className={style.login}>
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" />
+              </SignedIn>
 
-          {/* User not signed in => show sign in button */}
-          <SignedOut>
-            <SignInButton mode="modal">
-              <div className={style.btn_login}>
-                <button className={style.singIn}>
-                 <span className={style.sign_span}>sign in</span>
-                 <span><i className="fa-solid fa-circle-user"></i></span>
-                </button>
-              </div>
-            </SignInButton>
-          </SignedOut>
+              {/* User not signed in => show sign in button */}
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <div className={style.btn_login}>
+                    <button className={style.singIn}>
+                      <span className={style.sign_span}>sign in</span>
+                      <span>
+                        <i className="fa-solid fa-circle-user"></i>
+                      </span>
+                    </button>
+                  </div>
+                </SignInButton>
+              </SignedOut>
+            </div>
+            <div className={style.cartLogo}>
+              <p className={style.cart}>
+                <i className="fa-solid fa-cart-shopping"></i>
+              </p>
+              <p className={style.count}>0</p>
+            </div>
+          </div>
         </div>
-        <div className={style.cartLogo}>
-          <p className={style.cart}>
-            <i className="fa-solid fa-cart-shopping"></i>
-          </p>
-          <p className={style.count}>0</p>
-        </div>
-      </div>
-    </div>
-    <div className={style.input_slector}>
+        <div className={style.input_slector}>
           <div className={style.slector_option}>
             <div className={style.caret_all} onClick={handleslector}>
               <p className={style.All}>All</p>
@@ -153,7 +168,10 @@ function Header() {
               </div>
             )}
           </div>
-          <div className={style.searchLogo} onClick={() => handleSearch(searchQuery)}>
+          <div
+            className={style.searchLogo}
+            onClick={() => handleSearch(searchQuery)}
+          >
             <i
               className="fa-solid fa-magnifying-glass"
               id={style.magnifying}
@@ -165,66 +183,135 @@ function Header() {
           <p>Deals</p>
           <p>Sell</p>
         </div>
-    </div>
-     <div className={style.multiIconContainer}>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/21QHbXU96AL._SX100_SY100_.png" alt="" width={50} height={50}/>
-            <p className={style.multiIconContainer_para}>Fashion</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/21CJrl0e7+L._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Groceries</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/21OQCcPV0tL._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Mobiles</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/01SZyAw7k7L._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>MX Player</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/31ICLWjUdHL._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Home</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/11dcI5r-U6L._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Elctronics</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/21-5XYasLKL._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>EveryDay</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/312t+JcSoDL._SX100_SY100_.jpg" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Deals</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/21xXjwTSVIL._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Beauty</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/11V7tDHLoyL._SX100_SY100_.jpg" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Books</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/118lbTsRMWL._SX100_SY100_.jpg" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Appliances</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/21VMZilRtoL._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Insurance</p>
-          </div>
-          <div className={style.multiIconContainer_img}>
-            <Image src="https://m.media-amazon.com/images/I/215lv40sqoL._SX100_SY100_.png" alt="" width={50} height={50}/>
-             <p className={style.multiIconContainer_para}>Gift Cards</p>
-          </div>
+      </div>
+      <div className={style.multiIconContainer}>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/21QHbXU96AL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Fashion</p>
         </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/21CJrl0e7+L._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Groceries</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/21OQCcPV0tL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Mobiles</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/01SZyAw7k7L._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>MX Player</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/31ICLWjUdHL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Home</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/11dcI5r-U6L._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Elctronics</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/21-5XYasLKL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>EveryDay</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/312t+JcSoDL._SX100_SY100_.jpg"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Deals</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/21xXjwTSVIL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Beauty</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/11V7tDHLoyL._SX100_SY100_.jpg"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Books</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/118lbTsRMWL._SX100_SY100_.jpg"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Appliances</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/21VMZilRtoL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Insurance</p>
+        </div>
+        <div className={style.multiIconContainer_img}>
+          <Image
+            src="https://m.media-amazon.com/images/I/215lv40sqoL._SX100_SY100_.png"
+            alt=""
+            width={50}
+            height={50}
+          />
+          <p className={style.multiIconContainer_para}>Gift Cards</p>
+        </div>
+      </div>
 
       <div className={style.topHead}>
         <div className={style.logo}>
           <div className={style.image}>
-            <img src="/amazonLogo.png" id={style.img_logo}  onClick={handleHome} />
+            <img
+              src="/amazonLogo.png"
+              id={style.img_logo}
+              onClick={handleHome}
+            />
           </div>
           <div className={style.div_p}>
             <p className={style.in}>.in</p>
@@ -282,7 +369,20 @@ function Header() {
               <div className={style.suggestionsBox}>
                 <ul>
                   {searchResults.map((item, index) => (
-                    <li key={index} className={style.serachBar_li}>
+                    <li
+                      key={index}
+                      className={style.serachBar_li}
+                      onClick={() => {
+                        router.push(
+                          `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(
+                            item.name
+                          )}`
+                        );
+                          setShowSuggestions(false);
+                        setSearchQuery(item.name);
+                      }}
+                      
+                    >
                       {" "}
                       <span>
                         {" "}
@@ -298,7 +398,10 @@ function Header() {
               </div>
             )}
           </div>
-          <div className={style.searchLogo} onClick={() => handleSearch(searchQuery)}>
+          <div
+            className={style.searchLogo}
+            onClick={() => handleSearch(searchQuery)}
+          >
             <i
               className="fa-solid fa-magnifying-glass"
               id={style.magnifying}
