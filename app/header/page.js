@@ -23,20 +23,25 @@ function Header() {
     setNavbar((prev) => !prev);
   };
 
-   const handleSearch = async (query) => {
+  const handleSearch = async (query) => {
+    // console.log("handleSearch called with query:", query); 
     if (!query.trim()) return;
     try {
       const res = await fetch(`/api/itemStore/searchBar?query=${encodeURIComponent(query)}`);
       const data = await res.json();
-      setSearchResults(data.results);
+      console.log("Search results:", data.results); 
+      setSearchResults(data.results || []); 
       setShowSuggestions(true);
     } catch (err) {
       console.error("Search failed", err);
+      setSearchResults([]);
+      setShowSuggestions(false);
     }
   };
 
   const handleChange = (e) => {
     const value = e.target.value;
+    console.log("Search query:", value); 
     setSearchQuery(value);
     if (value.trim()) {
       handleSearch(value);
@@ -46,25 +51,40 @@ function Header() {
     }
   };
 
-  // Click outside handler to close suggestions
   useEffect(() => {
+    console.log("searchBoxRef:", searchBoxRef.current); 
     const handleClickOutside = (event) => {
-      // Agar clicked element searchBoxRef ke andar nahi hai to close suggestions
-      if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
+
+      if (
+        searchBoxRef.current &&
+        !searchBoxRef.current.contains(event.target) &&
+        !event.target.closest(`.${style.suggestionsBox}`)
+      ) {
+        console.log("Clicked outside, closing suggestions"); // Debug
         setShowSuggestions(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-
+    document.addEventListener("touchstart", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, []);
-
 
   const handleHome = () => {
     router.push("/");
   };
+
+  const handleSuggestionClick = (itemName) => {
+    // console.log("Suggestion clicked, navigating to:", itemName); 
+    const url = `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(itemName)}`;
+    // console.log("Navigation URL:", url); 
+    router.push(url);
+    setShowSuggestions(false);
+    setSearchQuery(itemName);
+  };
+
   return (
     <>
       <div className={style.mobile_view_navbar}>
@@ -87,8 +107,6 @@ function Header() {
               <SignedIn>
                 <UserButton afterSignOutUrl="/" />
               </SignedIn>
-
-              {/* User not signed in => show sign in button */}
               <SignedOut>
                 <SignInButton mode="modal">
                   <div className={style.btn_login}>
@@ -135,12 +153,10 @@ function Header() {
               </div>
             )}
           </div>
-
           <div className={style.search} ref={searchBoxRef}>
             <input
               type="text"
               id={style.search_input}
-              // className={style.search_mobile_view}
               placeholder="Search for products"
               value={searchQuery}
               onChange={handleChange}
@@ -152,24 +168,19 @@ function Header() {
               <div className={style.suggestionsBox}>
                 <ul>
                   {searchResults.map((item, index) => (
-                    <li key={index} className={style.serachBar_li}  onClick={() => {
-                        router.push(
-                          `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(
-                            item.name
-                          )}`
-                        );
-                          setShowSuggestions(false);
-                        setSearchQuery(item.name);
-                      }}>
-                      {" "}
+                    <li
+                      key={index}
+                      className={style.serachBar_li}
+                      onClick={() => handleSuggestionClick(item.name)}
+                      onTouchEnd={(e) => {
+                        e.preventDefault(); // Prevent default touch behaviors
+                        handleSuggestionClick(item.name);
+                      }} // Use onTouchEnd instead of onTouchStart
+                    >
                       <span>
-                        {" "}
-                        <i
-                          className="fa-solid fa-magnifying-glass"
-                          id={style.magnifying_search}
-                        ></i>
-                      </span>{" "}
-                      <span>{item.name}</span>{" "}
+                        <i className="fa-solid fa-magnifying-glass" id={style.magnifying_search}></i>
+                      </span>
+                      <span>{item.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -179,11 +190,9 @@ function Header() {
           <div
             className={style.searchLogo}
             onClick={() => handleSearch(searchQuery)}
+            onTouchStart={() => handleSearch(searchQuery)}
           >
-            <i
-              className="fa-solid fa-magnifying-glass"
-              id={style.magnifying}
-            ></i>
+            <i className="fa-solid fa-magnifying-glass" id={style.magnifying}></i>
           </div>
         </div>
         <div className={style.shop_category_sell}>
@@ -315,11 +324,7 @@ function Header() {
       <div className={style.topHead}>
         <div className={style.logo}>
           <div className={style.image}>
-            <img
-              src="/amazonLogo.png"
-              id={style.img_logo}
-              onClick={handleHome}
-            />
+            <img src="/amazonLogo.png" id={style.img_logo} onClick={handleHome} />
           </div>
           <div className={style.div_p}>
             <p className={style.in}>.in</p>
@@ -380,26 +385,16 @@ function Header() {
                     <li
                       key={index}
                       className={style.serachBar_li}
-                      onClick={() => {
-                        router.push(
-                          `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(
-                            item.name
-                          )}`
-                        );
-                          setShowSuggestions(false);
-                        setSearchQuery(item.name);
-                      }}
-                      
+                      onClick={() => handleSuggestionClick(item.name)}
+                      onTouchEnd={(e) => {
+                        e.preventDefault(); // Prevent default touch behaviors
+                        handleSuggestionClick(item.name);
+                      }} // Use onTouchEnd instead of onTouchStart
                     >
-                      {" "}
                       <span>
-                        {" "}
-                        <i
-                          className="fa-solid fa-magnifying-glass"
-                          id={style.magnifying_search}
-                        ></i>
-                      </span>{" "}
-                      <span>{item.name}</span>{" "}
+                        <i className="fa-solid fa-magnifying-glass" id={style.magnifying_search}></i>
+                      </span>
+                      <span>{item.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -409,11 +404,9 @@ function Header() {
           <div
             className={style.searchLogo}
             onClick={() => handleSearch(searchQuery)}
+            onTouchStart={() => handleSearch(searchQuery)}
           >
-            <i
-              className="fa-solid fa-magnifying-glass"
-              id={style.magnifying}
-            ></i>
+            <i className="fa-solid fa-magnifying-glass" id={style.magnifying}></i>
           </div>
         </div>
 
@@ -429,8 +422,6 @@ function Header() {
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
-
-          {/* User not signed in => show sign in button */}
           <SignedOut>
             <SignInButton mode="modal">
               <div className={style.btn_login}>
