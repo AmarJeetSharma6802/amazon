@@ -38,7 +38,7 @@ export default function App() {
           <div className={style.swiper}>
             <div className={style.swiper__item}>
               <img
-                src="https://images-eu.ssl-images-amazon.com/images/G/31/INSLGW/pc_common_12th._CB555377188_.jpg"
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img19/SiddMiniTV/LafangeyHighRes._CB791772502_.jpg"
                 className={style.swiper_img}
               />
               <Image

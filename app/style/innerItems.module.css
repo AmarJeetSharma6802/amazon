@@ -145,6 +145,14 @@ gap: 20px;
 .close_fliter{
     display: none;
 }
+.ac_lg{
+width: 75%;
+padding: 10px;
+margin: auto;
+border: 0.5px solid rgb(176, 176, 176);
+text-align: center;
+border-radius: 5px;
+}
 
 @media (max-width:1200px) {
     .mobile_view_amazon_items_filters{

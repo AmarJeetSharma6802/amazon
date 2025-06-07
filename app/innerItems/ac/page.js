@@ -228,7 +228,21 @@ setFilter(false)
               70% Off or more
             </li>
           </ul>
+        <div className={style.ac_lg}>
+          <div className={style.innerAc_lg}>
+            <Image src="https://m.media-amazon.com/images/I/31m-ySetxML._AC_SR120,120_.jpg" width={100} height={100} alt=""/>
+          <p>LG 1.5 Ton 5 Star DUAL Inverter Split AC (Coppe...</p>
+          <button>Shop now</button>
+          </div>
+          <div className={style.innerAc_lg}>
+            <Image src="https://m.media-amazon.com/images/I/31m-ySetxML._AC_SR120,120_.jpg" width={100} height={100} alt=""/>
+          <p>LG 1.5 Ton 5 Star DUAL Inverter Split AC (Coppe...</p>
+          <button>Shop now</button>
+          </div>
         </div>
+
+        </div>
+        
         <div className={style.flex_content_right}>
           <div className={style.right_grid}>
           {
@@ -250,6 +264,7 @@ setFilter(false)
           }
           </div>
         </div>
+
       </div>
     </>
   );
