@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import Refrigerators from './Refrigerators';
 
 export const metadata = {
-  title: 'Refrigerators',
+  title: 'Laptop , computer | amazon.in',
   description: 'Browse all refrigerators from top brands',
 };
 

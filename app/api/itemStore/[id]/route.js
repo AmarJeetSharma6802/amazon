@@ -81,15 +81,27 @@ export async function PUT(req,{ params}){
 
 }
 
-export async function DELETE(req, { params }) {
-  const id = params.id;
+export async function DELETE(req, context) {
+  try {
+    await  DBconnect()
+    const { id } = context.params;
 
-  const findItem = await itemApi.findByIdAndDelete(id);
+    const findItem = await itemApi.findByIdAndDelete(id);
 
-  if (!findItem) {
-    return NextResponse.json({ message: "Item nahi mila" }, { status: 404 });
+    if (!findItem) {
+      return NextResponse.json({ message: "Item nahi mila" }, { status: 404 });
+    }
+
+    return NextResponse.json(
+      { message: "Delete successfully", findItem },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { message: "Server error", error: error.message },
+      { status: 500 }
+    );
   }
-
-  return NextResponse.json({ message: "Delete successfully", findItem }, { status: 200 });
 }
 

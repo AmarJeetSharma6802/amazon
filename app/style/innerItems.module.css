@@ -81,6 +81,7 @@ min-height: 100vh ;
 position: relative;
 z-index: 999;
 display: flex;
+overflow: auto;
 gap: 20px;
 }
 .flex_content_left{
@@ -152,6 +153,42 @@ margin: auto;
 border: 0.5px solid rgb(176, 176, 176);
 text-align: center;
 border-radius: 5px;
+}
+
+/* laptop,computer  */
+.topDt_right_img_flex{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+.topDt_right_left,.topDt_right_right{
+width: 50%;
+}
+.topDt_right_right{
+    display: flex; 
+    align-items: flex-start;
+    gap: 10px;
+
+}
+
+.right_topDt_img{
+    width: 100%;
+    height: 80%;
+}
+
+.dt_flex{
+    display: flex;
+    gap: 20px;
+    padding: 20px
+}
+.dt_img{
+width: 20%;
+}
+.dt_details{
+    width: 80%;
+}
+.laptop_computer_img{
+    width: 100%;
 }
 
 @media (max-width:1200px) {
