@@ -1,4 +1,3 @@
-import { title } from "process"
 import Ac from "./Ac.jsx"
 export const metadata =  {
     title:"Ac items | amazon.in"
