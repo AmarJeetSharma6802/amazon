@@ -185,10 +185,32 @@ width: 50%;
 width: 20%;
 }
 .dt_details{
-    width: 80%;
+    width: 70%;
+    line-height: 1.5;
+}
+.dt_details_title{
+    font-weight: 500;
+    font-size: 18px;
+    width: 90%;
+    overflow: hidden;
+}
+.dt_details_price{
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+}
+.dt_details_btn{
+    background-color: #eebf59;
+    padding: 6px;
+    border-radius: 50px;
+    border: none;
+    margin-top: 0.5rem;
 }
 .laptop_computer_img{
     width: 100%;
+}
+.left_topDt_img{
+width: 100%;
 }
 
 @media (max-width:1200px) {
@@ -284,5 +306,43 @@ display: block;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 100%;
+}
+
+}
+
+@media (min-width: 300px) and (max-width:850px) {
+    .topDt_right_img_flex {
+    flex-direction: column;
+    align-items: center;
+}
+    .topDt_right_left, .topDt_right_right {
+    width: 100%;
+    justify-content: center;
+}
+.dt_flex {
+    gap: 10px;
+    padding: 20px;
+    flex-direction: column;
+}
+.dt_img ,.dt_details {
+    width: 100%;
+}
+.dt_details_title {
+    width: 100%;
+}
+.dt_details_btn {
+    width: 100%;
+    padding: 8px;
+}
+}
+
+@media (min-width: 400px) and (max-width:900px) {
+    .dt_flex {
+    flex-direction: inherit;
+    align-items: center;
+}
+.dt_details_title {
+    width: 100%;
+  
 }
 }

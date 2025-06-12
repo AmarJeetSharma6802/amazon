@@ -206,15 +206,15 @@ function Refrigerators() {
                 </div>
                 <div className={style.topDt_right_right}>
                   <div>
-                    <Image src="https://m.media-amazon.com/images/I/71CjP9jmqZL._AC_SR230,210_CB1169409_QL70_.jpg" alt='' width={150} height={150}/>
+                    <Image src="https://m.media-amazon.com/images/I/71CjP9jmqZL._AC_SR230,210_CB1169409_QL70_.jpg" alt='' width={150} height={150} className={style.left_topDt_img} />
                     <p>₹91,990</p>
                   </div>
                   <div>
-                    <Image src="https://m.media-amazon.com/images/I/71pKJ+Mjd8L._AC_SR160,134_CB1169409_QL70_.jpg" alt='' width={150} height={150}/>
+                    <Image src="https://m.media-amazon.com/images/I/71pKJ+Mjd8L._AC_SR160,134_CB1169409_QL70_.jpg" alt='' width={150} height={150} className={style.left_topDt_img}/>
                     <p>₹1,35000</p>
                   </div>
                   <div>
-                    <Image src="https://m.media-amazon.com/images/I/61eA9PkZ07L._AC_SR160,134_CB1169409_QL70_.jpg" alt='' width={150} height={150}/>
+                    <Image src="https://m.media-amazon.com/images/I/61eA9PkZ07L._AC_SR160,134_CB1169409_QL70_.jpg" alt='' width={150} height={150} className={style.left_topDt_img}/>
                     <p>₹2,01,990</p>
                   </div>
                   
@@ -233,12 +233,12 @@ function Refrigerators() {
 
             </div>
             <div className={style.dt_details}>
-              <p>{item.title}</p>
-              <p>{item.price}</p>
+              <p className={style.dt_details_title}>{item.title}</p>
+              <p className={style.dt_details_price}>₹ {item.price}</p>
               <p>FREE delivery Fri, 13 Jun</p>
               <p>Or fastest delivery Tomorrow, 12 Jun</p>
               <p>Service: Device Setup</p>
-              <button>Add to cart</button>
+              <button className={style.dt_details_btn}>Add to cart</button>
               </div>
             </div>
           </div>
