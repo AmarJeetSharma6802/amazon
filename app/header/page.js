@@ -84,7 +84,7 @@ function Header() {
 
   function handleSuggestionClick(item) {
     let url;
-    if (item.source === "itemStore" || item.name.toLowerCase().includes("refrigerator")) {
+    if (item.source === "itemStore" || item.name.toLowerCase().includes("laptop")) {
       url = `/innerItems/laptop?scrollTo=${encodeURIComponent(item.name)}`;
     } else {
       url = `/innerItems/ac?scrollTo=${encodeURIComponent(item.name)}`;
@@ -99,7 +99,7 @@ function Header() {
     await handleSearch(query);
     let url;
     if (query.toLowerCase().includes("refrigerator")) {
-      url = `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(query)}`;
+      url = `/innerItems/laptop?scrollTo=${encodeURIComponent(query)}`;
     } else {
       url = `/innerItems/ac?scrollTo=${encodeURIComponent(query)}`;
     }
