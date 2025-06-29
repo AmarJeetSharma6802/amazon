@@ -85,7 +85,7 @@ function Header() {
   function handleSuggestionClick(item) {
     let url;
     if (item.source === "itemStore" || item.name.toLowerCase().includes("refrigerator")) {
-      url = `/innerItems/Refrigerators?scrollTo=${encodeURIComponent(item.name)}`;
+      url = `/innerItems/laptop?scrollTo=${encodeURIComponent(item.name)}`;
     } else {
       url = `/innerItems/ac?scrollTo=${encodeURIComponent(item.name)}`;
     }
