@@ -98,7 +98,7 @@ function Header() {
     if (!query.trim()) return;
     await handleSearch(query);
     let url;
-    if (query.toLowerCase().includes("refrigerator")) {
+    if (query.toLowerCase().includes("laptop")) {
       url = `/innerItems/laptop?scrollTo=${encodeURIComponent(query)}`;
     } else {
       url = `/innerItems/ac?scrollTo=${encodeURIComponent(query)}`;
