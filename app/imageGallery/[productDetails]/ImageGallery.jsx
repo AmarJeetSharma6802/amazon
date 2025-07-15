@@ -14,7 +14,7 @@ export default function ProductGallery({selectedContent}) {
   const [zoomStyle, setZoomStyle] = useState({});
   const mainImageRef = useRef(null);
 
-  const lensWidth = 50;
+  const lensWidth = 60;
   const lensHeight = 50;
   const zoomFactor = 2;
 
@@ -85,9 +85,12 @@ export default function ProductGallery({selectedContent}) {
     </div>
 
     <div className={style.gallery_left_side}>
-         <p>{selectedContent?.details}</p>
+        <div className={style.left_side_deatils}>
+           <p className={style.left_side_deatils}>{selectedContent?.details}</p>
          <p>{selectedContent?.offer}</p>
          <p>{selectedContent?.price}</p>
+         <img src={selectedContent.rating} alt="" />
+        </div>
          {/* Zoom Window */}
       {zoomVisible && (
         <div
