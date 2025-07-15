@@ -89,7 +89,10 @@ export default function ProductGallery({selectedContent}) {
            <p className={style.left_side_deatils}>{selectedContent?.details}</p>
          <p>{selectedContent?.offer}</p>
          <p>{selectedContent?.price}</p>
-         <img src={selectedContent.rating} alt="" />
+        <div className={style.rating}>
+          <p>{selectedContent.ratingNumber}</p>
+           <img src={selectedContent.rating} alt="" />
+        </div>
         </div>
          {/* Zoom Window */}
       {zoomVisible && (
