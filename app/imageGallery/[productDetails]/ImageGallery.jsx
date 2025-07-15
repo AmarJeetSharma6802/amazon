@@ -39,7 +39,7 @@ export default function ProductGallery({selectedContent}) {
   };
 
   return (
-    <>
+    <div className={style.main_content}>
     <div className={style.gallery_flex}>
 
     <div className={style.gallery_right_side}>
@@ -86,6 +86,8 @@ export default function ProductGallery({selectedContent}) {
 
     <div className={style.gallery_left_side}>
          <p>{selectedContent?.details}</p>
+         <p>{selectedContent?.offer}</p>
+         <p>{selectedContent?.price}</p>
          {/* Zoom Window */}
       {zoomVisible && (
         <div
@@ -98,7 +100,8 @@ export default function ProductGallery({selectedContent}) {
         ></div>
       )}
     </div>
+
     </div>
-    </>
+    </div>
   );
 }
