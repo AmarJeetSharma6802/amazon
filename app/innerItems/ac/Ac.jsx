@@ -114,10 +114,15 @@ function Ac() {
     },
   ];
 
-  const handleImageGallery = (details)=>{
-    const slug = details.toLowerCase().replace(/\s+/g, "-");
-    router.push(`/imageGallery/${slug}`)
-  }
+ const handleImageGallery = (details) => {
+    const slug = details
+      .toLowerCase()
+      .replace(/[,]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+    router.push(`/imageGallery/${slug}`);
+  };
   return (
     <>
       <div className={style.flex_content}>
