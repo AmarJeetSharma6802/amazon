@@ -1,0 +1,43 @@
+import React from 'react'
+import ImageGallery from "./ImageGallery.jsx"
+
+
+const images = [
+     {
+      id:1,
+       name:"Daikin 1.5 Ton 3 Star Inverter Split AC Copper",
+     details:
+      "Daikin 1.5 Ton 3 Star Inverter Split AC Copper, PM 2.5 Filter, Triple Display, Dew Clean",
+      gallery:[
+        'https://m.media-amazon.com/images/I/61JyEPdw3UL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/81QGKn2LCfL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/61JyEPdw3UL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/813yL92JRpL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/61JyEPdw3UL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/813yL92JRpL._SX679_.jpg',
+      ]
+     },
+    ];
+
+async function page({params}) {
+  const {details} = await params
+  console.log(details)
+
+  
+  const slugify = (details) => details.toLowerCase().replace(/\s+/g, "-");
+
+      const selectedContent = images.find(
+    (item) => slugify(item.details) === details
+  );
+
+  if (!selectedContent) {
+    return <p>No content found!</p>;
+  }
+  return (
+    <div>
+      <ImageGallery selectedContent ={selectedContent}/>
+    </div>
+  )
+}
+
+export default page

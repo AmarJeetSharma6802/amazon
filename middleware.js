@@ -9,6 +9,8 @@ const isPublicRoute = createRouteMatcher([
   "/api/products(.*)", // ✅ Covers both itemStore & productList ise use karne liye public folder ke ander dalna hoga
   "/innerItems/(.*)",
   "/api/external(.*)", 
+  "/imageGallery(.*)",
+  
 ]);
 
 export default clerkMiddleware(async (auth, req) => {

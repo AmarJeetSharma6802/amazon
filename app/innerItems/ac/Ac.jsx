@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import style from "../../style/innerItems.module.css";
 import Image from "next/image";
 import { useFilter } from "../FilterContext";
+import { useRouter } from "next/navigation";
 
 function Ac() {
+  const router = useRouter()
   const { filter, setFilter } = useFilter();
 
   const [price, setPrice] = useState(31000);
@@ -17,7 +19,7 @@ function Ac() {
     {
       id: 1,
       details:
-        "Daikin 1.5 Ton 3 Star Inverter Split AC (Copper, PM 2.5 Filter, Triple Display, Dew Clean",
+        "Daikin 1.5 Ton 3 Star Inverter Split AC Copper, PM 2.5 Filter, Triple Display, Dew Clean",
       stars: "★ ★ ★ ★ ",
       lastStars: <i className="fa-regular fa-star"></i>,
       offer: "36%",
@@ -111,6 +113,11 @@ function Ac() {
       price: "29,990",
     },
   ];
+
+  const handleImageGallery = (details)=>{
+    const slug = details.toLowerCase().replace(/\s+/g, "-");
+    router.push(`/imageGallery/${slug}`)
+  }
   return (
     <>
       <div className={style.flex_content}>
@@ -268,7 +275,7 @@ function Ac() {
             {ProductItems.map((item) => {
               return (
                 <div key={item.id} className={style.product_right_side}>
-                  <Image
+                  <Image onClick={()=>handleImageGallery(item.details)}
                     src={item.img}
                     width={100}
                     height={100}
