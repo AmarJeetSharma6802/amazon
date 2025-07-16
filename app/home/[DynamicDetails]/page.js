@@ -37,20 +37,20 @@ const images = [
   },
   {
     id: 3,
-    details: "Daikin 0.8 Ton 3 Star, Fixed Speed Split AC (Copper, PM 2.5 Filter, 2022 Model, FTL28U, White)",
-    offer: "-35%",
-    price: "37990",
+    details:
+        "iQOO Neo 10R 5G (Moonknight Titanium, 8GB RAM, 256GB Storage Segment's Most Stable 90FPS for 5 Hours",
+    offer: "-15%",
+    price: " 28,998.00",
     rating: "/rating.png",
-    ratingStar: "4.0",
-    ratingNumer: "1,879",
+    ratingStar: "4.4",
+    ratingNumer: "1,912",
     gallery: [
-      "https://m.media-amazon.com/images/I/61mOVGinDdL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81yqXFEqIML._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/51fg3w--ZLL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/619jkA1AmRL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/717q7DTu0iL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81s6kDRXccL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/812sgiHEtQL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/610NUM9jlxL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71I3dnZ3eOL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61T-WBv27iL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71M1Se+WlIL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61zZATvUU2L._SX679_.jpg",
+
     ],
   },
 ];
