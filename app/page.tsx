@@ -38,11 +38,11 @@ export default function App() {
           <div className={style.swiper}>
             <div className={style.swiper__item}>
               <img
-                src="https://images-eu.ssl-images-amazon.com/images/G/31/img19/SiddMiniTV/LafangeyHighRes._CB791772502_.jpg"
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/INSLGW/af_pc_2x._CB792409181_.jpg"
                 className={style.swiper_img}
               />
               <Image
-                src="https://m.media-amazon.com/images/I/61-Mgny9L8L._SR1236,1080_.jpg"
+                src="https://m.media-amazon.com/images/I/61bDTjNXzIL._SR1236,1080_.jpg"
                 alt="mobile"
                 width={500}
                 height={500}
