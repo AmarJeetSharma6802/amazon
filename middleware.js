@@ -10,6 +10,7 @@ const isPublicRoute = createRouteMatcher([
   "/innerItems/(.*)",
   "/api/external(.*)", 
   "/imageGallery(.*)",
+  "/home(.*)",
   
 ]);
 

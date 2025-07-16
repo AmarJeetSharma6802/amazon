@@ -5,8 +5,9 @@ import React, { useState, useRef } from "react";
 import "../globals.css";
 import Homepage from "../home/Homepage.jsx";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 export default function Home() {
+  const router = useRouter()
   const imagePath = [
     {
       id: 1,
@@ -305,6 +306,16 @@ export default function Home() {
     // Disable right button when at the end
     setCanScrollRight(carousel.scrollLeft < maxScrollLeft);
   };
+  const handleHomeDynamic =(details)=>{
+  const slug = details
+  .trim()
+      .toLowerCase()
+      .replace(/[,]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+    router.push(`/home/${slug}`);
+  }
 
   return (
     <>
@@ -381,7 +392,7 @@ export default function Home() {
             {itemMember.map((item, index) => (
               <div key={index} className="carousel-item-2">
                 <a>
-                  <img
+                  <img onClick={()=>handleHomeDynamic(item.details)}
                     src={item.img}
                     alt={`${item.p} item`}
                     className="carousel-image-2"
