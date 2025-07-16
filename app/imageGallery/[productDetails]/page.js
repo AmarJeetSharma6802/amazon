@@ -41,7 +41,7 @@ const images = [
     offer:"-35%",
     price:"37990",
     rating:"/rating.png",
-    ratingNumber:"3.9",
+    ratingNumber:"4.0",
     gallery: [
       'https://m.media-amazon.com/images/I/61mOVGinDdL._SX679_.jpg',
       'https://m.media-amazon.com/images/I/81yqXFEqIML._SX679_.jpg',
@@ -64,7 +64,7 @@ const slugify = (details) => {
 };
 
 async function page({ params }) {
-  const { productDetails } = params; // Destructure the correct parameter
+  const { productDetails } = params; 
   // console.log('URL Param:', productDetails);
 
   const selectedContent = images.find(

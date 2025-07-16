@@ -84,6 +84,24 @@ background-color: white;
   background-size: 200%;
 }
 .left_side_deatils{
-  font-size: 1.5rem;
+  padding: 1rem;
+}
+.left_side_deatils_para{
+  font-size: 1.4rem;
   max-width: 500px;
+}
+
+.vidit_store{
+  padding-top: 0.5rem;
+  color: rgb(4, 86, 158);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.vidit_store:hover{
+text-decoration: underline;
+}
+.rating{
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
 }

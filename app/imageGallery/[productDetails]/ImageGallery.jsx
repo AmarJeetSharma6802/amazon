@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import style from "../../style/ImageGallery.module.css"
+import Image from "next/image";
 
 export default function ProductGallery({selectedContent}) {
  
@@ -86,12 +87,11 @@ export default function ProductGallery({selectedContent}) {
 
     <div className={style.gallery_left_side}>
         <div className={style.left_side_deatils}>
-           <p className={style.left_side_deatils}>{selectedContent?.details}</p>
-         <p>{selectedContent?.offer}</p>
-         <p>{selectedContent?.price}</p>
+           <p className={style.left_side_deatils_para}>{selectedContent?.details}</p>
+           <p className={style.vidit_store}>visit the amazon store</p>
         <div className={style.rating}>
           <p>{selectedContent.ratingNumber}</p>
-           <img src={selectedContent.rating} alt="" />
+           <Image src={selectedContent.rating} alt="" className="" width={90} height={18} />
         </div>
         </div>
          {/* Zoom Window */}
