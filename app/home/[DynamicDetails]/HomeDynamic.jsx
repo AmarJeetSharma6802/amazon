@@ -91,7 +91,7 @@ export default function HomeDynamic({selectedContent}) {
            <p className={style.vidit_store}>visit the amazon store</p>
         <div className={style.rating}>
           <p>{selectedContent.ratingStar}</p>
-           <Image src={selectedContent.rating} alt="" className="" width={90} height={18} />
+           <Image src={selectedContent.rating} alt="" className="" width={80} height={18} />
            <p className={style.ratingNumber}>{selectedContent.ratingNumer} ratings</p>
         </div>
         <div className={style.bottom_boder}></div>
