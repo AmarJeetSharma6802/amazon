@@ -137,3 +137,22 @@ text-decoration: underline;
   color: #CC0C39;
   font-weight: 100;
 }
+
+@media (max-width:850px) {
+  .gallery_flex{
+    flex-direction: column;
+    max-width: 96vw;
+  }
+  .gallery_right_side{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.gallery_left_side{
+  width: 100%;
+  position: relative;
+  height: 100vh;
+
+}
+}
