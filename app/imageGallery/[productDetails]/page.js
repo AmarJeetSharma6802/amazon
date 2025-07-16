@@ -8,7 +8,8 @@ const images = [
     offer:"-35%",
     price:"37990",
     rating:"/rating.png",
-    ratingNumber:"3.9",
+    ratingStar:"3.9",
+    ratingNumer:"2,109",
     gallery: [
       'https://m.media-amazon.com/images/I/61JyEPdw3UL._SX679_.jpg',
       'https://m.media-amazon.com/images/I/81QGKn2LCfL._SL1500_.jpg',
@@ -24,7 +25,8 @@ const images = [
     offer:"-35%",
     price:"37990",
     rating:"/rating.png",
-    ratingNumber:"3.9",
+    ratingStar:"3.9",
+    ratingNumer:"1,899",
     gallery: [
       'https://m.media-amazon.com/images/I/6179B4CYGTL._SX679_.jpg',
       'https://m.media-amazon.com/images/I/81QGKn2LCfL._SL1500_.jpg',
@@ -41,7 +43,8 @@ const images = [
     offer:"-35%",
     price:"37990",
     rating:"/rating.png",
-    ratingNumber:"4.0",
+    ratingStar:"4.0",
+    ratingNumer:"1,879",
     gallery: [
       'https://m.media-amazon.com/images/I/61mOVGinDdL._SX679_.jpg',
       'https://m.media-amazon.com/images/I/81yqXFEqIML._SX679_.jpg',

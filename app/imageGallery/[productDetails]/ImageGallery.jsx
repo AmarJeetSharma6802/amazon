@@ -90,10 +90,19 @@ export default function ProductGallery({selectedContent}) {
            <p className={style.left_side_deatils_para}>{selectedContent?.details}</p>
            <p className={style.vidit_store}>visit the amazon store</p>
         <div className={style.rating}>
-          <p>{selectedContent.ratingNumber}</p>
+          <p>{selectedContent.ratingStar}</p>
            <Image src={selectedContent.rating} alt="" className="" width={90} height={18} />
+           <p className={style.ratingNumber}>{selectedContent.ratingNumer} ratings</p>
+        </div>
+        <div className={style.bottom_boder}></div>
+
+        <div className={style.price_offer}>
+        <p className={style.offer}>{selectedContent.offer} </p>
+      
+        <p className={style.price}>   <span className={style.price_sign}>₹</span> {selectedContent.price} </p>
         </div>
         </div>
+
          {/* Zoom Window */}
       {zoomVisible && (
         <div
