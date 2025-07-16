@@ -41,7 +41,7 @@ const images = [
         "iQOO Neo 10R 5G (Moonknight Titanium, 8GB RAM, 256GB Storage Segment's Most Stable 90FPS for 5 Hours",
     offer: "-15%",
     price: " 28,998.00",
-    rating: "/rating.png",
+    rating: "/rating4.4.png",
     ratingStar: "4.4",
     ratingNumer: "1,912",
     gallery: [
