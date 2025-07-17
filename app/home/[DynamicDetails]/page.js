@@ -71,6 +71,29 @@ const images = [
 
     ],
   },
+  {
+    id: 5,
+     details:
+        "Samsung Galaxy A55 5G (Awesome Iceblue, 8GB RAM, 256GB Storage) | AI | Metal Frame | 50 MP Main Camera (OIS) | Super HDR Video| Nightography | IP67 | Corning Gorilla Glass Victus+ | sAMOLED Display",
+    offer: "-33%",
+    price: " 28,999.00",
+    rating: "/rating.png",
+    ratingStar: "4.2",
+    ratingNumer: "1,433",
+    storageOnePrice:"26,999",
+    storagethreePrice:"33,999",
+    gallery: [
+      "https://m.media-amazon.com/images/I/71oZ2oEeD4L._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71O6Op16zKL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81bt09h1FWL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81QmFAoFJ5L._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71HdS-wAxWL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81hpmXMKUfL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81KrqpQZf7L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71Vj3ezeSmL._SL1500_.jpg",
+
+    ],
+  },
 ];
 
 const slugify = (details) => {

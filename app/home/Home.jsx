@@ -227,7 +227,7 @@ export default function Home() {
       summer: "Great Summer Sale",
       price: "₹ 28,999.00",
       details:
-        "Samsung Galaxy A55 5G (Awesome Iceblue, 8GB RAM, 256GB Storage)",
+        "Samsung Galaxy A55 5G (Awesome Iceblue, 8GB RAM, 256GB Storage) | AI | Metal Frame | 50 MP Main Camera (OIS) | Super HDR Video| Nightography | IP67 | Corning Gorilla Glass Victus+ | sAMOLED Display",
       img: "https://m.media-amazon.com/images/I/41uR6Pme6NL._SR480,440_.jpg",
     },
     {

@@ -137,7 +137,35 @@ text-decoration: underline;
   color: #CC0C39;
   font-weight: 100;
 }
+.EMI_boxes{
+  display: flex;
+  height: 105px;
+  width: 100%;
+  gap: 5px;
+  overflow: hidden;
+}
+.offer_boxes{
+  border: 1px solid rgb(221, 220, 220);
+  border-radius: 4px;
+  padding: 5px;
 
+}
+.offer_boxes_heading{
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.offer_boxes_para{
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+.offer_EMI_img{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 @media (max-width:850px) {
   .gallery_flex{
     flex-direction: column;
