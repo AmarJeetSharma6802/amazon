@@ -148,6 +148,7 @@ text-decoration: underline;
   border: 1px solid rgb(221, 220, 220);
   border-radius: 4px;
   padding: 5px;
+  cursor: pointer;
 
 }
 .offer_boxes_heading{
@@ -165,6 +166,31 @@ text-decoration: underline;
   align-items: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.offer_boxes_btn{
+color: rgb(4, 86, 158);
+font-size: 0.9rem;
+}
+.size_storage{
+  margin-top: 0.5rem;
+
+}
+.size_storage_btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+.sizebtn{
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(175, 175, 175);
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sizebtn.activeBtn{
+  border:2px solid rgb(4, 86, 158);
 }
 @media (max-width:850px) {
   .gallery_flex{

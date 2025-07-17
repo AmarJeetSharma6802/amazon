@@ -82,6 +82,9 @@ const images = [
     ratingNumer: "1,433",
     storageOnePrice:"26,999",
     storagethreePrice:"33,999",
+    sizeOne:"8GB + 128GB",
+    sizeTwo:"8GB + 256GB",
+    sizeThree:"12GB + 256GB",
     gallery: [
       "https://m.media-amazon.com/images/I/71oZ2oEeD4L._SX679_.jpg",
       "https://m.media-amazon.com/images/I/71O6Op16zKL._SL1500_.jpg",

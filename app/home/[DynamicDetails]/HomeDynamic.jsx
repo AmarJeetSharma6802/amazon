@@ -5,10 +5,12 @@ import style from "../../style/ImageGallery.module.css";
 import Image from "next/image";
 
 export default function HomeDynamic({ selectedContent }) {
+  const [slectedSize ,setSlectedSize] = useState(selectedContent.sizeTwo)
   const [price ,setPrice] = useState(selectedContent.price)
 
-  const handleStorage =(priceVariant)=>{
+  const handleStorage =(priceVariant,sizeVariant)=>{
     setPrice(priceVariant)
+    setSlectedSize(sizeVariant)
   }
   const images = selectedContent?.gallery || [];
 
@@ -184,9 +186,15 @@ export default function HomeDynamic({ selectedContent }) {
               </div>
             </div>
 
-            <button onClick={()=>handleStorage(selectedContent.storageOnePrice)}>4 gb storage and 6ram</button>
-            <button onClick={()=>handleStorage(selectedContent.price)}>8 gb storage and 8ram</button>
-            <button onClick={()=>handleStorage(selectedContent.storagethreePrice)}>12 gb storage and 8 ram</button>
+           <div className={style.size_storage}>
+            <p >Size : {slectedSize} </p>
+            <div className={style.size_storage_btn}>
+               <button onClick={()=>handleStorage(selectedContent.storageOnePrice ,selectedContent.sizeOne)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeOne ? style.activeBtn : ""}`}>{selectedContent.sizeOne}</button>
+            <button onClick={()=>handleStorage(selectedContent.price,selectedContent.sizeTwo)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeTwo ? style.activeBtn : ""}`}>{selectedContent.sizeTwo}</button>
+
+            <button onClick={()=>handleStorage(selectedContent.storagethreePrice,selectedContent.sizeThree)}  className={`${style.sizebtn} ${slectedSize === selectedContent.sizeThree ? style.activeBtn : ""}`}>{selectedContent.sizeThree}</button>
+            </div>
+             </div>
            
           </div>
 
