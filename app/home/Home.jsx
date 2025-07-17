@@ -218,7 +218,7 @@ export default function Home() {
       offer: "25% off",
       summer: "Great Summer Sale",
       price: "₹ 8,799.00",
-      details: "Redmi A4 5G (Sparkle Purple, 4GB RAM, 128GB Storage)",
+      details: "Redmi A4 5G (Sparkle Purple, 4GB RAM, 128GB Storage) | Global Debut SD 4s Gen 2 | Segment Largest 6.88in 120Hz | 50MP Dual Camera | 18W Fast Charging",
       img: "https://m.media-amazon.com/images/I/4146RWmsLuL._SR480,440_.jpg",
     },
     {
