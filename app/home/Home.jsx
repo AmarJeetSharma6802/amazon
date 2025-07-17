@@ -201,7 +201,7 @@ export default function Home() {
       summer: "Great Summer Sale",
       price: "₹ 84,999.00",
       details:
-        "Samsung Galaxy S24 Ultra 5G AI Smartphone (Titanium Gray, 12GB, 256GB Storage)",
+        "Samsung Galaxy S24 Ultra 5G AI Smartphone with Galaxy AI (Titanium Gray, 12GB, 256GB Storage), Snapdragon 8 Gen 3, 200 MP Camera with ProVisual Engine and 5000mAh Battery",
       img: "https://m.media-amazon.com/images/I/41X9qNxoJKL._SR480,440_.jpg",
     },
     {
