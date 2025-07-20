@@ -73,10 +73,15 @@ const images = [
     details:
       "Redmi A4 5G (Sparkle Purple, 4GB RAM, 128GB Storage) | Global Debut SD 4s Gen 2 | Segment Largest 6.88in 120Hz | 50MP Dual Camera | 18W Fast Charging",
     offer: "-27%",
-    price: " 8,799.00",
+    price: " 9,499",
     rating: "/rating.png",
     ratingStar: "4.0",
     ratingNumer: "4,513",
+      sizeOne: "4GB + 64GB",
+    sizeTwo: "4GB + 128GB",
+    sizeThree: "6GB + 128GB",
+    storageOnePrice: "8,499",
+    storagethreePrice: "9,799",
     gallery: [
       "https://m.media-amazon.com/images/I/81BGKLI+cWL._SX679_.jpg",
       "https://m.media-amazon.com/images/I/81ncbaMp+lL._SX679_.jpg",
