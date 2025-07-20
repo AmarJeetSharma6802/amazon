@@ -210,4 +210,25 @@ font-size: 0.9rem;
   height: 100vh;
 
 }
+.left_side_deatils_para {
+  max-width: 100%;
+}
+}
+
+@media (min-width: 300px) and (max-width:400px) {
+.gallery_container {
+    gap: 24px;
+    display: flex;
+    flex-direction: column-reverse
+;
+}
+.thumbnails {
+    display: flex;
+    flex-direction: initial;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.thumbnails::-webkit-scrollbar{
+  display: none;
+}
 }
