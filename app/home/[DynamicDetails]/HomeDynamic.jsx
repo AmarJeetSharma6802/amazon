@@ -187,7 +187,7 @@ export default function HomeDynamic({ selectedContent }) {
             </div>
 
            <div className={style.size_storage}>
-            <p >Size : {slectedSize} </p>
+            <p className={style.slectedSize} >Size : {slectedSize} </p>
             <div className={style.size_storage_btn}>
                <button onClick={()=>handleStorage(selectedContent.storageOnePrice ,selectedContent.sizeOne)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeOne ? style.activeBtn : ""}`}>{selectedContent.sizeOne}</button>
             <button onClick={()=>handleStorage(selectedContent.price,selectedContent.sizeTwo)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeTwo ? style.activeBtn : ""}`}>{selectedContent.sizeTwo}</button>
@@ -195,7 +195,15 @@ export default function HomeDynamic({ selectedContent }) {
             <button onClick={()=>handleStorage(selectedContent.storagethreePrice,selectedContent.sizeThree)}  className={`${style.sizebtn} ${slectedSize === selectedContent.sizeThree ? style.activeBtn : ""}`}>{selectedContent.sizeThree}</button>
             </div>
              </div>
+
+             {/* COMPUTER SECTION AND LAPTOP SECTION */}
            
+            <div className={style.computerAndLaptop_section}>
+              <div className={style.computerAndLaptop_section_width}>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Brand</span>  <span>{selectedContent.brand}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Brand</span>  <span>{selectedContent.brand}</span></p>
+              </div>
+            </div>
           </div>
 
           {/* Zoom Window */}

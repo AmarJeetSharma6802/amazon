@@ -1,6 +1,5 @@
 import HomeDynamic from "./HomeDynamic.jsx";
 
-
 const images = [
   {
     id: 1,
@@ -78,7 +77,7 @@ const images = [
     rating: "/rating.png",
     ratingStar: "4.0",
     ratingNumer: "4,513",
-      sizeOne: "4GB + 64GB",
+    sizeOne: "4GB + 64GB",
     sizeTwo: "4GB + 128GB",
     sizeThree: "6GB + 128GB",
     storageOnePrice: "8,499",
@@ -118,30 +117,37 @@ const images = [
     ],
   },
 
-  // "computer section"
+  // "computer and laptop section"
   {
     id: 6,
     details:
-      "Lenovo A100 All in one Intel® N100 23.8\" FHD (1920x1080) 3-Side Edgeless All-in-One Desktop (8GB/512GB SSD/Win11/MS Office 2024/5MP Camera/USB Calliope Keyboard & Mouse) F0J6005FIN\n",
+      'Lenovo A100 All in one Intel® N100 23.8" FHD (1920x1080) 3-Side Edgeless All-in-One Desktop (8GB/512GB SSD/Win11/MS Office 2024/5MP Camera/USB Calliope Keyboard & Mouse) F0J6005FIN\n',
     offer: "-16%",
-    price: " 31,499",
+    price: " 68,990",
     rating: "/rating4.4.png",
     ratingStar: "4.3",
     ratingNumer: "21",
-    storageOnePrice: "26,999",
-    storagethreePrice: "33,999",
-    sizeOne: "8GB + 128GB",
-    sizeTwo: "8GB + 256GB",
-    sizeThree: "12GB + 256GB",
+    storageOnePrice: "45,990",
+    storagethreePrice: "85,990",
+    sizeOne: "27 inch - i3 13 _white",
+    sizeTwo: "27 inch - i5 13 _white",
+    sizeThree: "27 inch - i7 13 _white",
+    brand: "Lenovo",
+    Operating: "Windows 11 Home",
+    CPUModel: "	Intel N100",
+    CPUSpeed: "3.4 GHz",
+    CacheSize: "6",
+    GraphicsCard:"Integrated Graphics",
+    MemoryStorage:"512 GB SSD",
+    SpecificProduct:"Multimedia, Everyday Use, Business",
     gallery: [
       "https://m.media-amazon.com/images/I/61IcdoVmZuL._SX679_.jpg",
       "https://m.media-amazon.com/images/I/91iqQHFKdiL._SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/81bt09h1FWL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81QmFAoFJ5L._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/71HdS-wAxWL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81hpmXMKUfL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81KrqpQZf7L._SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71Vj3ezeSmL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81h5PqU-mOL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61bvUfpg5IL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71Sk4hG5chL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81QJHeS+-FL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/51Mn7X+u3+L._SL1500_.jpg",
     ],
   },
 ];
@@ -160,7 +166,6 @@ async function page({ params }) {
   const { DynamicDetails } = params;
   // console.log("Available slugs:", images.map((item) => slugify(item.details)));
 
-  
   const selectedContent = images.find(
     (item) => slugify(item.details) === DynamicDetails
   );

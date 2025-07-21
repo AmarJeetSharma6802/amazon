@@ -175,6 +175,9 @@ font-size: 0.9rem;
   margin-top: 0.5rem;
 
 }
+.slectedSize{
+  font-weight: 600;
+}
 .size_storage_btn{
   display: flex;
   align-items: center;
@@ -193,6 +196,19 @@ font-size: 0.9rem;
 .sizebtn.activeBtn{
   border:2px solid rgb(4, 86, 158);
 }
+
+/*  COMPUTER LAPTOP SECTION */
+
+
+.computerAndLaptop_section_para{
+  display: flex;
+   gap: 4rem;
+   margin-top: 1rem;
+}
+.computerAndLaptop_section_para_span{
+  font-weight: 600;
+}
+
 @media (max-width:850px) {
   .gallery_flex{
     flex-direction: column;
