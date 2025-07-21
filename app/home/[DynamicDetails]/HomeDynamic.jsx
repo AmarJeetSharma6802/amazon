@@ -198,12 +198,21 @@ export default function HomeDynamic({ selectedContent }) {
 
              {/* COMPUTER SECTION AND LAPTOP SECTION */}
            
-            <div className={style.computerAndLaptop_section}>
+            {/* <div className={style.computerAndLaptop_section}>
               <div className={style.computerAndLaptop_section_width}>
                 <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Brand</span>  <span>{selectedContent.brand}</span></p>
-                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Brand</span>  <span>{selectedContent.brand}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Operating System	</span>  <span>{selectedContent.Operating}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >CPU Model	</span>  <span>{selectedContent.CPUModel}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >CPU Speed</span>  <span>{selectedContent.CPUSpeed}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Graphics Card Description</span>  <span>{selectedContent.GraphicsCard}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Cache Size</span>  <span>{selectedContent.CacheSize}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Graphics Card Description</span>  <span>{selectedContent.GraphicsCard}</span></p>
+               
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Specific Uses For Product</span>  <span>{selectedContent.SpecificProduct}</span></p>
+               
+               
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Zoom Window */}

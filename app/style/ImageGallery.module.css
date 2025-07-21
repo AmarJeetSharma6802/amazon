@@ -13,8 +13,6 @@ background-color: white;
   width: 50%;
   position: sticky;
   top: 0;
-  height: 100%;
-  
 }
 
 .gallery_left_side{
@@ -207,6 +205,8 @@ font-size: 0.9rem;
 }
 .computerAndLaptop_section_para_span{
   font-weight: 600;
+  max-width: 70px;
+  font-size:0.9rem;
 }
 
 @media (max-width:850px) {
@@ -223,7 +223,7 @@ font-size: 0.9rem;
 .gallery_left_side{
   width: 100%;
   position: relative;
-  height: 100vh;
+  height: 100%;
 
 }
 .left_side_deatils_para {
