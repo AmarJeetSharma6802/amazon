@@ -1,5 +1,6 @@
 import HomeDynamic from "./HomeDynamic.jsx";
 
+
 const images = [
   {
     id: 1,
@@ -116,6 +117,33 @@ const images = [
       "https://m.media-amazon.com/images/I/71Vj3ezeSmL._SL1500_.jpg",
     ],
   },
+
+  // "computer section"
+  {
+    id: 6,
+    details:
+      "Lenovo A100 All in one Intel® N100 23.8\" FHD (1920x1080) 3-Side Edgeless All-in-One Desktop (8GB/512GB SSD/Win11/MS Office 2024/5MP Camera/USB Calliope Keyboard & Mouse) F0J6005FIN\n",
+    offer: "-16%",
+    price: " 31,499",
+    rating: "/rating4.4.png",
+    ratingStar: "4.3",
+    ratingNumer: "21",
+    storageOnePrice: "26,999",
+    storagethreePrice: "33,999",
+    sizeOne: "8GB + 128GB",
+    sizeTwo: "8GB + 256GB",
+    sizeThree: "12GB + 256GB",
+    gallery: [
+      "https://m.media-amazon.com/images/I/61IcdoVmZuL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/91iqQHFKdiL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81bt09h1FWL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81QmFAoFJ5L._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71HdS-wAxWL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81hpmXMKUfL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81KrqpQZf7L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71Vj3ezeSmL._SL1500_.jpg",
+    ],
+  },
 ];
 
 const slugify = (details) => {
@@ -132,6 +160,7 @@ async function page({ params }) {
   const { DynamicDetails } = params;
   // console.log("Available slugs:", images.map((item) => slugify(item.details)));
 
+  
   const selectedContent = images.find(
     (item) => slugify(item.details) === DynamicDetails
   );
