@@ -151,7 +151,7 @@ const images = [
     ],
   },
   {
-    id: 8,
+    id: 7,
     details:
       'Lenovo IdeaCentre AIO Ryzen 7 7735HS 23.8" FHD IPS All-in-One Desktop (16GB RAM/512GB SSD/Win11/Microsoft 365 Basic + Office Home 2024/3Wx2 Speakers/5MP Camera/Wireless Keyboard & Mouse), F0HR008YIN',
     offer: "-5%",
@@ -184,9 +184,9 @@ const images = [
     ],
   },
   {
-    id: 7,
+    id: 9,
     details:
-      'HP All-in-One, Intel Core Ultra 5 125U (16GB DDR5,1TB SSD) IPS, 300 nits, Anti-Glare, 27inch(68.6cm) FHD, Win11, M365, Office24, Shell White, 6.72kg, FHD IR tilt Camera w/Privacy shuttter, 27-cr1027in\n',
+      'Lenovo IdeaCentre AIO 3 12th Gen Intel i3 23.8" FHD WVA 3-Side Edgeless All-in-One Desktop with Alexa Built-in (8GB/512GB SSD/Win11/MS Office 2021/HD 720p Camera/Wireless Keyboard & Mouse) F0GH017DIN',
     offer: "-16%",
     price: " 68,990",
     rating: "/rating4.4.png",
@@ -206,16 +206,17 @@ const images = [
     MemoryStorage:"512 GB SSD",
     SpecificProduct:"Multimedia, Everyday Use, Business",
     gallery: [
-      "https://m.media-amazon.com/images/I/71G5gAbV7mL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81dju7fwXiL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/71ZR3aSf+SL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/71168VmJ0KL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/715U3ClL1cL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/71W3dKoK5xL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/7139fzBjekL._SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/71CACxucSbL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71MGaYBPnoL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71mQxgFvELL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71cpoWtl1RL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/51pDMUGwR-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/51izbvIqrwL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61-4q5jJBVL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61jLTuoNn2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71zFeKcFzeL._SL1500_.jpg",
     ],
   },
+  
 ];
 
 const slugify = (details) => {
