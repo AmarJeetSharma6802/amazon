@@ -180,7 +180,8 @@ width: 50%;
 .dt_flex{
     display: flex;
     gap: 20px;
-    padding: 20px
+    padding: 20px;
+    cursor:pointer
 }
 .dt_img{
 width: 20%;

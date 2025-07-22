@@ -5,8 +5,10 @@ import { useSearchParams, usePathname } from 'next/navigation';
 import { useFilter } from "../FilterContext";
 import style from "../../style/innerItems.module.css";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 function Refrigerators() {
+  const router = useRouter()
     const { filter, setFilter } = useFilter();
       const [price, setPrice] = useState(20000);
   
@@ -45,6 +47,16 @@ function Refrigerators() {
     }
   }, [searchParams, pathname, dt]); // 🔁 jab query ya route ya data change ho
 
+  const handleHomeDynamic = (details) => {
+    const slug = details
+      .trim()
+      .toLowerCase()
+      .replace(/[,]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
+    router.push(`/home/${slug}`);
+  };
   return (
     <div>
 
@@ -227,7 +239,7 @@ function Refrigerators() {
       ) : (
         dt.map(item => (
           <div key={item._id}>
-            <div id={`product-${item.name.replace(/\s+/g, '-')}`} className={style.dt_flex}>
+            <div id={`product-${item.name.replace(/\s+/g, '-')}`} className={style.dt_flex} onClick={()=>handleHomeDynamic(item.title)}>
             <div className={style.dt_img}>
               <img src={item.image} alt='' className={style.laptop_computer_img} />
 
