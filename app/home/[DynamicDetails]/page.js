@@ -174,8 +174,8 @@ const images = [
     SpecificProduct:"Multimedia, Everyday Use, Business",
     gallery: [
       "https://m.media-amazon.com/images/I/61g+jxnIPNL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/81dju7fwXiL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/71ZR3aSf+SL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51tL-76iFSL._SX569_.jpg",
+      "https://m.media-amazon.com/images/I/71I-Z3ox+DL._SX569_.jpg",
       "https://m.media-amazon.com/images/I/71168VmJ0KL._SX679_.jpg",
       "https://m.media-amazon.com/images/I/715U3ClL1cL._SX679_.jpg",
       "https://m.media-amazon.com/images/I/71W3dKoK5xL._SX679_.jpg",
