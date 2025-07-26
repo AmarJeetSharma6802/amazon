@@ -153,19 +153,19 @@ function SecondFooter() {
       <div className={style.mydetails}>
         <div className={style.github_footer}>
         
-      <a href="https://github.com/AmarJeetSharma6802" className={style.anchor_tag_color} >
+      <a href="https://github.com/AmarJeetSharma6802" target="_blank" className={style.anchor_tag_color} >
           <span><i className="fa-brands fa-github"></i></span>
         <span className={style.awesomeFONT}>Github</span>
       </a>
         </div>
         <div className={style.LinkedIn_footer}>
-     <a href="https://www.linkedin.com/in/amarjeet-sharma-full-stack/" className={style.anchor_tag_color}>
+     <a href="https://www.linkedin.com/in/amarjeet-sharma-full-stack/" target="_blank" className={style.anchor_tag_color}>
          <span><i className="fa-brands fa-linkedin-in"></i></span>
         <span className={style.awesomeFONT}>LinkedIn</span>
      </a>
         </div>
         <div className={style.Portfolio_footer}>
-          <a href="https://portfolio-beta-dusky-34.vercel.app/" className={style.anchor_tag_color}>
+          <a href="https://portfolio-beta-dusky-34.vercel.app/" target="_blank" className={style.anchor_tag_color}>
         <span><img src="https://res.cloudinary.com/futurecoder/image/upload/v1742915736/uploads/dc8yiorajevea0nrqldp.png" alt="" className={style.portfoli_img} /></span>
          <span className={style.awesomeFONT}> Portfolio </span>
          </a>
