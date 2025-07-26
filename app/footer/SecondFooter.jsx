@@ -152,12 +152,17 @@ function SecondFooter() {
       </div>
       <div className={style.mydetails}>
         <div className={style.github_footer}>
-        <span><i className="fa-brands fa-github"></i></span>
+        
+      <a href="https://github.com/AmarJeetSharma6802" className={style.anchor_tag_color} >
+          <span><i className="fa-brands fa-github"></i></span>
         <span className={style.awesomeFONT}>Github</span>
+      </a>
         </div>
         <div className={style.LinkedIn_footer}>
-        <span><i className="fa-brands fa-linkedin-in"></i></span>
+     <a href="https://www.linkedin.com/in/amarjeet-sharma-full-stack/" className={style.anchor_tag_color}>
+         <span><i className="fa-brands fa-linkedin-in"></i></span>
         <span className={style.awesomeFONT}>LinkedIn</span>
+     </a>
         </div>
         <div className={style.Portfolio_footer}>
           <a href="https://portfolio-beta-dusky-34.vercel.app/" className={style.anchor_tag_color}>

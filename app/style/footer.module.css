@@ -151,8 +151,6 @@
   .github_footer {
     background-color: #070708;
     padding: 10px;
-    display: flex;
-    gap: 5px;
     border-radius: 6px;
     align-items: center;
     font-size: 18px;
@@ -162,8 +160,6 @@
     background-color: #00a0dc;
     font-size: 18px;
     padding: 8px;
-    display: flex;
-    gap: 5px;
     border-radius: 6px;
     align-items: center;
     cursor: pointer;
@@ -172,14 +168,16 @@
     background-color: #dc8686;
     font-size: 18px;
     padding: 5px;
-    display: flex;
-    gap: 5px;
     border-radius: 6px;
     align-items: center;
     cursor: pointer;
   }
   .anchor_tag_color{
     color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
   
   @media (max-width:650px) {
