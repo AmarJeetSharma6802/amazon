@@ -198,7 +198,9 @@ export default function HomeDynamic({ selectedContent }) {
 
              {/* COMPUTER SECTION AND LAPTOP SECTION */}
            
-            <div className={style.computerAndLaptop_section}>
+            {
+              selectedContent.brand && (
+                <div className={style.computerAndLaptop_section}>
               <div className={style.computerAndLaptop_section_width}>
                 <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Brand</span>  <span>{selectedContent.brand}</span></p>
                 <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Operating System	</span>  <span>{selectedContent.Operating}</span></p>
@@ -213,6 +215,8 @@ export default function HomeDynamic({ selectedContent }) {
                
               </div>
             </div>
+              )
+            }
           </div>
 
           {/* Zoom Window */}
