@@ -160,8 +160,10 @@ function SecondFooter() {
         <span className={style.awesomeFONT}>LinkedIn</span>
         </div>
         <div className={style.Portfolio_footer}>
+          <a href="https://portfolio-beta-dusky-34.vercel.app/" className={style.anchor_tag_color}>
         <span><img src="https://res.cloudinary.com/futurecoder/image/upload/v1742915736/uploads/dc8yiorajevea0nrqldp.png" alt="" className={style.portfoli_img} /></span>
-        <a href="https://portfolio-beta-dusky-34.vercel.app/"> <span className={style.awesomeFONT}> Portfolio </span></a>
+         <span className={style.awesomeFONT}> Portfolio </span>
+         </a>
         </div>
       </div>
     </div>

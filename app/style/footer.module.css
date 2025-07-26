@@ -178,6 +178,9 @@
     align-items: center;
     cursor: pointer;
   }
+  .anchor_tag_color{
+    color: white;
+  }
   
   @media (max-width:650px) {
     .secondFooter_content{
