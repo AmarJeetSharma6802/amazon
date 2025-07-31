@@ -52,12 +52,14 @@ export default function HomeDynamic({ selectedContent }) {
             {/* Thumbnails */}
             <div className={style.thumbnails}>
               {images.map((img, idx) => (
-                <img
+                <Image
                   key={idx}
                   src={img}
                   alt={`Thumb ${idx}`}
                   className={style.thumbnail_img}
                   onMouseEnter={() => setSelectedImage(img)}
+                  height={200}
+                  width={200}
                 />
               ))}
             </div>
@@ -70,10 +72,12 @@ export default function HomeDynamic({ selectedContent }) {
               onMouseLeave={() => setZoomVisible(false)}
               onMouseMove={handleMouseMove}
             >
-              <img
+              <Image
                 src={selectedImage}
                 alt="Main"
                 className={style.main_image}
+                width={400}
+                height={400}
               />
 
               {zoomVisible && (
