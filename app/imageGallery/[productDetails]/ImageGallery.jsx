@@ -48,12 +48,14 @@ export default function ProductGallery({selectedContent}) {
       {/* Thumbnails */}
       <div className={style.thumbnails}>
         {images.map((img, idx) => (
-          <img
+          <Image
             key={idx}
             src={img}
             alt={`Thumb ${idx}`}
             className={style.thumbnail_img}
             onMouseEnter={() => setSelectedImage(img)}
+            width={60}
+            height={60}
           />
         ))}
       </div>
