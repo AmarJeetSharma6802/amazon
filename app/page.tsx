@@ -38,7 +38,7 @@ export default function App() {
           <div className={style.swiper}>
             <div className={style.swiper__item}>
               <img
-                src="https://images-eu.ssl-images-amazon.com/images/G/31/INSLGW/af_pc_2x._CB792409181_.jpg"
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/2025/AugART_25/GW/D278613793_IN_WLA_AugART25_Gateway_Category-PC_Hero_3000x1200_Asin._CB804826657_.jpg"
                 className={style.swiper_img}
               />
               <Image
@@ -56,7 +56,7 @@ export default function App() {
           <div className={style.swiper}>
             <div className={style.swiper__item}>
               <img
-                src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/2025/AugART_25/GW/D278613793_IN_WLA_AugART25_Gateway_Category-PC_Hero_3000x1200_Asin._CB804826657_.jpg"
+                src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/2024/BAU_BTF/Nov/Unrec/Shoes/1/30003._CB542120021_.jpg"
                 className={style.swiper_img}
               />
               <Image
