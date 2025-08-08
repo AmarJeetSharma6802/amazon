@@ -3,7 +3,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-// 👇 Step 2: Wrap your config
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -39,3 +39,13 @@ const nextConfig = {
 
 // 👇 Step 3: Export wrapped config
 module.exports = withBundleAnalyzer(nextConfig);
+
+
+// npm install @next/bundle-analyzer
+
+
+// npm install --save-dev cross-env  (Windows mein ANALYZE=true direct nahi chalta, isliye hum cross-env use karenge.)
+
+
+
+// "npm run analyze"
