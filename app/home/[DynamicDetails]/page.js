@@ -1,5 +1,7 @@
 import HomeDynamic from "./HomeDynamic.jsx";
 
+
+
 const images = [
   {
     id: 1,
@@ -181,6 +183,39 @@ const images = [
       "https://m.media-amazon.com/images/I/61Cbj+kBkXL._SX679_.jpg",
       "https://m.media-amazon.com/images/I/71wLMfYKDZL._SL1500_.jpg",
       "https://m.media-amazon.com/images/I/71QipCMkGsL._SL1500_.jpg",
+    ],
+  },
+  {
+    id: 10,
+    details:
+      'ASUS AIO A3202,21.45\" FHD,Intel Celeron 7305, All-in-One PC (8GB/512GB/Windows 11/MS Office 365 Basic (1Year)*/Office 2024/Black/4.84 Kg), with Wireless Keyboard & Wireless Mouse, A3202WBA-BPB006WS',
+    offer: "-31%",
+    price: " 28,990",
+    rating: "/rating.png",
+    ratingStar: "4.0",
+    ratingNumer: "15",
+    storageOnePrice: "35,990",
+    storagethreePrice: "45,990",
+    sizeOne: "27 inch - i3 13 _white",
+    sizeTwo: "27 inch - i5 13 _white",
+    sizeThree: "27 inch - i7 13 _white",
+    brand: "ASUS",
+    Operating: "Windows 11 Home",
+    CPUModel: "Celeron",
+    CPUSpeed: "1.1 GHz ",
+    CacheSize: "8 MB",
+    GraphicsCard:"Integrated Graphics",
+    MemoryStorage:"512 GB ",
+    SpecificProduct:"Business, Education",
+    gallery: [
+      "https://m.media-amazon.com/images/I/7120H5WUJYL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71PdcGOCtqL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71GOqYYGivL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61ZSZFfwvjL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61RD47XkMLL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61bp1f9Px1L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71MYdyBkRfL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61Pjv4AwJoL._SL1500_.jpg",
     ],
   },
   {
