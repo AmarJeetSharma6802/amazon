@@ -1,6 +1,20 @@
 import HomeDynamic from "./HomeDynamic.jsx";
 
+export async function generateMetadata({ params }) {
+  // const name = await params?.name;
 
+  const {DynamicDetails} = await params
+
+  const contentName = DynamicDetails
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+    
+  return {
+    title: `${contentName} `,
+    description: contentName.para,
+ 
+  };
+}
 
 const images = [
   {
