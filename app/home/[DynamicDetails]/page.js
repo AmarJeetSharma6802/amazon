@@ -20,7 +20,9 @@ const images = [
   {
     id: 1,
     details: "Apple iPhone 15 (128 GB) - Black",
-    offer: "16% off",
+    offer: "-16% off",
+    offerOne:"-12% off",
+    offerThree:"-15% off",
     price: "58,999",
     rating: "/rating4.4.png",
     ratingStar: "4.5",

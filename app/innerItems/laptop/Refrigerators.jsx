@@ -45,7 +45,7 @@ function Refrigerators() {
         }, 300); // Delay to ensure content is rendered
       }
     }
-  }, [searchParams, pathname, dt]); // 🔁 jab query ya route ya data change ho
+  }, [searchParams, pathname, dt]); //  jab query ya route ya data change ho
 
   const handleHomeDynamic = (details) => {
     const slug = details
