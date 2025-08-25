@@ -7,10 +7,12 @@ import Image from "next/image";
 export default function ProductGallery({ selectedContent }) {
   const [slectedSize ,setSlectedSize] = useState(selectedContent.sizeTwo)
   const [price ,setPrice] = useState(selectedContent.price)
+  const[offer,setOffer] = useState(selectedContent.offer)
 
-  const handleStorage =(priceVariant,sizeVariant)=>{
+  const handleStorage =(priceVariant,sizeVariant,offerVariant)=>{
     setPrice(priceVariant)
     setSlectedSize(sizeVariant)
+    setOffer(offerVariant)
   }
   const images = selectedContent?.gallery || [];
 
@@ -117,7 +119,8 @@ export default function ProductGallery({ selectedContent }) {
             <div className={style.bottom_boder}></div>
 
             <div className={style.price_offer}>
-              <p className={style.offer}>{selectedContent.offer} </p>
+              {/* <p className={style.offer}>{selectedContent.offer} </p> */}
+              <p className={style.offer}>{offer} </p>
               <p className={style.price}>
                 {" "}
                 <span className={style.price_sign}>₹</span>{" "}
@@ -191,12 +194,12 @@ export default function ProductGallery({ selectedContent }) {
             </div>
 
            <div className={style.size_storage}>
-            <p className={style.slectedSize} >Size : {slectedSize} </p>
+            <p className={style.slectedSize} >Style name : {slectedSize} </p>
             <div className={style.size_storage_btn}>
-               <button onClick={()=>handleStorage(selectedContent.storageOnePrice ,selectedContent.sizeOne)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeOne ? style.activeBtn : ""}`}>{selectedContent.sizeOne}</button>
-            <button onClick={()=>handleStorage(selectedContent.price,selectedContent.sizeTwo)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeTwo ? style.activeBtn : ""}`}>{selectedContent.sizeTwo}</button>
+               <button onClick={()=>handleStorage(selectedContent.storageOnePrice ,selectedContent.sizeOne,selectedContent.offerOne)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeOne ? style.activeBtn : ""}`}>{selectedContent.sizeOne}</button>
+            <button onClick={()=>handleStorage(selectedContent.price,selectedContent.sizeTwo,selectedContent.offer)} className={`${style.sizebtn} ${slectedSize === selectedContent.sizeTwo ? style.activeBtn : ""}`}>{selectedContent.sizeTwo}</button>
 
-            <button onClick={()=>handleStorage(selectedContent.storagethreePrice,selectedContent.sizeThree)}  className={`${style.sizebtn} ${slectedSize === selectedContent.sizeThree ? style.activeBtn : ""}`}>{selectedContent.sizeThree}</button>
+            <button onClick={()=>handleStorage(selectedContent.storagethreePrice,selectedContent.sizeThree,selectedContent.offerThree)}  className={`${style.sizebtn} ${slectedSize === selectedContent.sizeThree ? style.activeBtn : ""}`}>{selectedContent.sizeThree}</button>
             </div>
              </div>
 
