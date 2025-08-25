@@ -45,7 +45,9 @@ const images = [
     id: 2,
     details:
       "Samsung Galaxy S24 Ultra 5G AI Smartphone with Galaxy AI (Titanium Gray, 12GB, 256GB Storage), Snapdragon 8 Gen 3, 200 MP Camera with ProVisual Engine and 5000mAh Battery",
-    offer: "37% off",
+    offer: "-37% off",
+    offerOne:"-35% off",
+    offerThree:"-39% off",
     price: "84,999",
     rating: "/rating.png",
     ratingStar: "4.2",
@@ -69,6 +71,8 @@ const images = [
     details:
       "iQOO Neo 10R 5G (Moonknight Titanium, 8GB RAM, 256GB Storage Segment's Most Stable 90FPS for 5 Hours",
     offer: "-15%",
+    offerOne:"-16% off",
+    offerThree:"-12% off",
     price: " 28,998",
     rating: "/rating4.4.png",
     ratingStar: "4.4",
@@ -134,10 +138,32 @@ const images = [
       "https://m.media-amazon.com/images/I/71Vj3ezeSmL._SL1500_.jpg",
     ],
   },
+  {
+    id: 6,
+    details:
+      "OnePlus 13R | Smarter with OnePlus AI | Lifetime Display Warranty (16GB RAM, 512GB Storage Nebula Noir)",
+    offer: "-33%",
+    price: " 28,999.00",
+    rating: "/rating.png",
+    ratingStar: "4.2",
+    ratingNumer: "1,433",
+    storageOnePrice: "26,999",
+    storagethreePrice: "33,999",
+    sizeOne: "8GB + 128GB",
+    sizeTwo: "8GB + 256GB",
+    sizeThree: "12GB + 256GB",
+    gallery: [
+      "https://m.media-amazon.com/images/I/61muVCIy-uL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51KYAzenTfL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61XtpELvh4L._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71rPMsQJv2L._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61LT5BuXKCL._SX679_.jpg",
+    ],
+  },
 
   // "computer and laptop section"
   {
-    id: 6,
+    id: 7,
     details:
       'Lenovo A100 All in one Intel® N100 23.8" FHD (1920x1080) 3-Side Edgeless All-in-One Desktop (8GB/512GB SSD/Win11/MS Office 2024/5MP Camera/USB Calliope Keyboard & Mouse) F0J6005FIN\n',
     offer: "-16%",
@@ -169,9 +195,9 @@ const images = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     details:
-      'Lenovo IdeaCentre AIO Ryzen 7 7735HS 23.8" FHD IPS All-in-One Desktop (16GB RAM/512GB SSD/Win11/Microsoft 365 Basic + Office Home 2024/3Wx2 Speakers/5MP Camera/Wireless Keyboard & Mouse), F0HR008YIN',
+      'HP All-in-One, Intel Core Ultra 5 125U (16GB DDR5,1TB SSD) IPS, 300 nits, Anti-Glare, 27inch(68.6cm) FHD, Win11, M365, Office24, Shell White, 6.72kg, FHD IR tilt Camera w/Privacy shuttter, 27-cr1027in\n',
     offer: "-5%",
     price: " 54,732",
     rating: "/rating4.4.png",
@@ -191,8 +217,8 @@ const images = [
     MemoryStorage:"512 GB SSD",
     SpecificProduct:"Multimedia, Everyday Use, Business",
     gallery: [
-      "https://m.media-amazon.com/images/I/61g+jxnIPNL._SX679_.jpg",
-      "https://m.media-amazon.com/images/I/51tL-76iFSL._SX569_.jpg",
+      "https://m.media-amazon.com/images/I/71G5gAbV7mL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81dju7fwXiL._SL1500_.jpg",
       "https://m.media-amazon.com/images/I/71I-Z3ox+DL._SX569_.jpg",
       "https://m.media-amazon.com/images/I/61992RZK2-L._SX569_.jpg",
       "https://m.media-amazon.com/images/I/61JaQcBSs-L._SX569_.jpg",
@@ -202,7 +228,7 @@ const images = [
     ],
   },
   {
-    id: 10,
+    id: 9,
     details:
       'ASUS AIO A3202,21.45\" FHD,Intel Celeron 7305, All-in-One PC (8GB/512GB/Windows 11/MS Office 365 Basic (1Year)*/Office 2024/Black/4.84 Kg), with Wireless Keyboard & Wireless Mouse, A3202WBA-BPB006WS',
     offer: "-31%",
@@ -235,9 +261,42 @@ const images = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     details:
       'Lenovo IdeaCentre AIO 3 12th Gen Intel i3 23.8" FHD WVA 3-Side Edgeless All-in-One Desktop with Alexa Built-in (8GB/512GB SSD/Win11/MS Office 2021/HD 720p Camera/Wireless Keyboard & Mouse) F0GH017DIN',
+    offer: "-16%",
+    price: " 68,990",
+    rating: "/rating4.4.png",
+    ratingStar: "4.3",
+    ratingNumer: "21",
+    storageOnePrice: "45,990",
+    storagethreePrice: "85,990",
+    sizeOne: "27 inch - i3 13 _white",
+    sizeTwo: "27 inch - i5 13 _white",
+    sizeThree: "27 inch - i7 13 _white",
+    brand: "Lenovo",
+    Operating: "Windows 11 Home",
+    CPUModel: "	Intel N100",
+    CPUSpeed: "3.4 GHz",
+    CacheSize: "6",
+    GraphicsCard:"Integrated Graphics",
+    MemoryStorage:"512 GB SSD",
+    SpecificProduct:"Multimedia, Everyday Use, Business",
+    gallery: [
+      "https://m.media-amazon.com/images/I/71MGaYBPnoL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71mQxgFvELL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71cpoWtl1RL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/51pDMUGwR-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/51izbvIqrwL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61-4q5jJBVL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61jLTuoNn2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71zFeKcFzeL._SL1500_.jpg",
+    ],
+  },
+  {
+    id: 11,
+    details:
+      "ASUS AIO A3202,21.45\" FHD,Intel Celeron 7305, All-in-One PC (8GB/512GB/Windows 11/MS Office 365 Basic (1Year)*/Office 2024/Black/4.84 Kg), with Wireless Keyboard & Wireless Mouse, A3202WBA-BPB006WS",
     offer: "-16%",
     price: " 68,990",
     rating: "/rating4.4.png",

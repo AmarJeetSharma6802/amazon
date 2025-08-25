@@ -206,7 +206,7 @@ export default function Home() {
     },
     {
       id: 3,
-      offer: "37% off",
+      offer: "15% off",
       summer: "Great Summer Sale",
       price: "₹ 28,998.00",
       details:
@@ -235,7 +235,7 @@ export default function Home() {
       offer: "8% off",
       summer: "Great Summer Sale",
       price: "₹ 47,998.00",
-      details: "OnePlus 13R | Smarter AI (16GB RAM, 512GB Storage Nebula Noir)",
+      details: "OnePlus 13R | Smarter with OnePlus AI | Lifetime Display Warranty (16GB RAM, 512GB Storage Nebula Noir)",
       img: "https://m.media-amazon.com/images/I/41uPss3u3eL._SR480,440_.jpg",
     },
     {
