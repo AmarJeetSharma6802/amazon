@@ -207,10 +207,10 @@ export default function ProductGallery({ selectedContent }) {
                 <div className={style.computerAndLaptop_section}>
               <div className={style.computerAndLaptop_section_width}>
                 <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Brand</span>  <span>{selectedContent.brand}</span></p>
-                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Capacity	</span>  <span>{selectedContent.Operating}</span></p>
-                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Cooling Power</span>  <span>{selectedContent.CPUModel}</span></p>
-                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Special Feature</span>  <span>{selectedContent.CPUSpeed}</span></p>
-                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >BEE Star Rating	</span>  <span>{selectedContent.GraphicsCard}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Capacity	</span>  <span>{selectedContent.Capacity}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Cooling Power</span>  <span>{selectedContent.CoolingPower}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >Special Feature</span>  <span>{selectedContent.SpecialFeature}</span></p>
+                <p className={style.computerAndLaptop_section_para}><span className={style.computerAndLaptop_section_para_span} >BEE Star Rating	</span>  <span>{selectedContent.beeRating}</span></p>
               </div>
             </div>
               )

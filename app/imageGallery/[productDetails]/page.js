@@ -16,6 +16,10 @@ const images = [
     sizeTwo: " 2024 - 1.5 Ton 3 Star ",
     sizeThree: " 2020 - 1.5 Ton 4 Star Inv ",
     brand: "DAIKIN",
+    Capacity:"1.5 Tons",
+    CoolingPower:"5000 Watts",
+    SpecialFeature:"nverter,dust_filter, PM 2.5 Filter",
+    beeRating:"4 star",
     gallery: [
       'https://m.media-amazon.com/images/I/61JyEPdw3UL._SX679_.jpg',
       'https://m.media-amazon.com/images/I/81QGKn2LCfL._SL1500_.jpg',
