@@ -8,11 +8,14 @@ background-color: white;
     margin:  auto;
     padding-top: 2rem;
     gap: 20px;
+    align-items: flex-start;
 }
 .gallery_right_side{
   width: 50%;
   position: sticky;
   top: 0;
+  align-self: flex-start;
+  height: fit-content;
 }
 
 .gallery_left_side{
