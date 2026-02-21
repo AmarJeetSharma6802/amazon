@@ -10,11 +10,11 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.18.5",
+    "@clerk/nextjs": "^6.38.1",
     "@next/bundle-analyzer": "^15.4.5",
     "cloudinary": "^2.6.0",
     "mongoose": "^8.14.1",
-    "next": "^15.4.1",
+    "next": "^16.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swiper": "^11.2.6"
